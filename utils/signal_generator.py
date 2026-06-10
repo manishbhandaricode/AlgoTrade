@@ -227,3 +227,81 @@ def generate_options_signal(
         "rsi": round(rsi_val, 2),
         "pivots": pivots
     }
+
+def generate_intraday_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Momentum Breakout") -> Dict[str, Any]:
+    """
+    Generates an intraday trade plan (pure equity, leverage).
+    Uses tighter stops (e.g., 0.5x to 1x ATR) and ORB/Momentum logic.
+    """
+    if len(df) < 20:
+        return {"decision": "NO TRADE", "reason": "Insufficient intraday data.", "indicators": {}}
+        
+    df = df.copy()
+    close_price = float(df['Close'].iloc[-1])
+    
+    # Intraday specific indicators
+    df['RSI'] = calculate_rsi(df)
+    df['ATR'] = calculate_atr(df, period=14)
+    macd = calculate_macd(df)
+    bb = calculate_bollinger_bands(df)
+    mas = calculate_moving_averages(df)
+    patterns = detect_candlestick_patterns(df)
+    
+    df = pd.concat([df, macd, bb, mas, patterns], axis=1)
+    
+    last_row = df.iloc[-1]
+    
+    # For intraday, ATR is much smaller, we use 1x ATR for Stop Loss
+    atr_val = last_row['ATR'] if not pd.isna(last_row['ATR']) else (close_price * 0.005)
+    
+    decision = "HOLD"
+    reason = "No high-probability intraday setups detected."
+    entry_price = round(close_price, 2)
+    
+    if strategy == "Momentum Breakout":
+        ema_crossover = last_row['EMA_9'] > last_row['EMA_21']
+        macd_bullish = last_row['Histogram'] > 0 and last_row['MACD'] > last_row['Signal']
+        if ema_crossover and macd_bullish and last_row['RSI'] > 55:
+            decision = "BUY"
+            reason = "Intraday Momentum: EMA 9 > EMA 21 with positive MACD divergence."
+            
+    elif strategy == "Mean Reversion":
+        at_lower_band = close_price <= (last_row['BB_Lower'] * 1.002)
+        rsi_oversold = last_row['RSI'] < 30
+        reversal_candle = last_row['Hammer'] | last_row['BullishEngulfing']
+        if at_lower_band and (rsi_oversold or reversal_candle):
+            decision = "BUY"
+            reason = "Intraday Reversion: Price rejected at lower Bollinger Band."
+            entry_price = round(last_row['BB_Lower'], 2)
+            
+    elif strategy == "Ichimoku Trend":
+        # Simplified for intraday: Price > EMA 50 and RSI > 60
+        if close_price > last_row['SMA_50'] and last_row['RSI'] > 60:
+            decision = "BUY"
+            reason = "Intraday Trend: Strong price action above 50-period moving average."
+            
+    # Tighter Intraday Risk Parameters
+    stop_loss = round(entry_price - atr_val, 2)
+    target_price = round(entry_price + (atr_val * 2.0), 2) # 1:2 RR ratio
+    
+    risk = entry_price - stop_loss
+    reward = target_price - entry_price
+    risk_reward = round(reward / risk, 2) if risk > 0 else 1.0
+    
+    return {
+        "symbol": symbol.upper(),
+        "close_price": round(close_price, 2),
+        "decision": decision,
+        "reason": reason,
+        "entry": entry_price,
+        "stop_loss": stop_loss,
+        "target": target_price,
+        "risk_reward": risk_reward,
+        "indicators": {
+            "RSI": round(last_row['RSI'], 2),
+            "ATR": round(atr_val, 2),
+            "MACD": round(last_row.get('MACD', 0), 2),
+            "NearestSupport": 0.0,
+            "NearestResistance": 0.0
+        }
+    }

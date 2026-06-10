@@ -328,31 +328,41 @@ with st.sidebar:
             st.error(f"Search error: {str(e)}")
 
 # ----------------- Tabs Main Component -----------------
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📈 Swing Analyzer (Equity)",
-    "⚡ Intraday Stock Scanner",
+tab1, tab3, tab4, tab5 = st.tabs([
+    "📈 Stock Analyzer (Swing & Intraday)",
     "🎯 Options Intelligence (F&O)",
     "🧪 Historical Backtester",
     "📒 Manual Trading Journal"
 ])
 
-# ==================== TAB 1: SWING TRADING ====================
+# ==================== TAB 1: STOCK ANALYZER ====================
 with tab1:
-    st.subheader("📈 On-Demand Live Charts & Swing Analyzer")
+    st.subheader("📈 On-Demand Live Charts & Stock Analyzer")
     
     col1, col2 = st.columns([1, 4])
     
     with col1:
         st.write("##### Input Parameters")
+        trade_mode = st.radio("Trading Mode", ["Swing (Delivery)", "Intraday (Leverage)"], horizontal=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # In Intraday mode, show scanner
+        if trade_mode == "Intraday (Leverage)":
+            st.info("Find active momentum stocks across Nifty components today.")
+            trigger_scan = st.button("Scan Market for Today's Movers", type="primary")
+            st.markdown("---")
+        else:
+            trigger_scan = False
+            
         ticker = st.text_input("Ticker Symbol", value=st.session_state["selected_searched_ticker"])
         exchange = st.selectbox("Exchange", ["NSE", "BSE"], index=0)
         
-        timeframe = st.selectbox("Timeframe", ["1m", "2m", "5m", "10m", "15m", "30m", "1h", "1d", "1wk"], index=7)
-        
-        if timeframe == "1m": lookback_options, lookback_default = ["1d", "5d", "7d"], 1
-        elif timeframe in ["2m", "5m", "10m", "15m", "30m"]: lookback_options, lookback_default = ["1d", "5d", "1mo"], 1
-        elif timeframe == "1h": lookback_options, lookback_default = ["5d", "1mo", "1y"], 1
-        else: lookback_options, lookback_default = ["1mo", "1y", "2y", "3y"], 1
+        if trade_mode == "Intraday (Leverage)":
+            timeframe = st.selectbox("Timeframe", ["1m", "5m", "15m", "30m"], index=1)
+            lookback_options, lookback_default = ["1d", "5d"], 0
+        else:
+            timeframe = st.selectbox("Timeframe", ["1d", "1wk"], index=0)
+            lookback_options, lookback_default = ["1mo", "1y", "2y"], 1
             
         history_period = st.selectbox("Historical Lookback", lookback_options, index=lookback_default)
         
@@ -372,7 +382,41 @@ with tab1:
         show_blueprint = st.toggle("Generate Trade Blueprint", value=False)
         
     with col2:
-        if ticker:
+        if trigger_scan:
+            st.write("### ⚡ High-Velocity Intraday Movers")
+            scan_universe = ["RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", "TMCV", "SBIN", "BHARTIARTL", "ITC", "LT", "AXISBANK", "MARUTI", "KOTAKBANK", "M&M", "SUNPHARMA"]
+            results = []
+            progress_bar = st.progress(0.0)
+            from utils.intraday_scanner import run_intraday_scan, get_previous_day_ohlc
+            
+            for idx, symbol in enumerate(scan_universe):
+                progress_bar.progress((idx + 1) / len(scan_universe))
+                with st.spinner(f"Scanning {symbol}..."):
+                    daily_prev = get_previous_day_ohlc(symbol)
+                    res = run_intraday_scan(symbol, daily_prev)
+                    results.append(res)
+                    
+            progress_bar.empty()
+            df_results = pd.DataFrame(results)
+            
+            if not df_results.empty and "status" in df_results.columns:
+                success_df = df_results[df_results['status'] == 'SUCCESS']
+                if not success_df.empty:
+                    scan_cols = ['symbol', 'trigger_event', 'spot', 'target', 'stop_loss', 'rsi']
+                    view_df = success_df[scan_cols].copy()
+                    view_df.columns = ['Symbol', 'Trigger Event', 'Current Spot (₹)', 'Target Price (₹)', 'Stop Loss (₹)', 'RSI (14)']
+                    st.dataframe(view_df.style.map(
+                        lambda val: 'background-color: rgba(0, 176, 116, 0.15)' if 'BULLISH' in str(val) or 'REBOUND' in str(val)
+                        else ('background-color: rgba(255, 91, 91, 0.15)' if 'BEARISH' in str(val) or 'REJECTION' in str(val) else ''),
+                        subset=['Trigger Event']
+                    ), use_container_width=True)
+                    st.info("Copy a symbol from above and paste it into the Ticker Symbol box on the left to view its chart and blueprint.")
+                else:
+                    st.warning("All scans returned connection errors. Try again during market hours.")
+            else:
+                st.warning("Scan failed or returned empty results.")
+                
+        elif ticker:
             with st.spinner("Fetching live market data..."):
                 try:
                     df = DataGateway.fetch_ohlcv(ticker, period=history_period, interval=timeframe, exchange=exchange)
@@ -506,35 +550,42 @@ with tab1:
                     )
                     
                     if show_blueprint:
-                        if is_intraday:
-                            st.warning("Trade Blueprint requires 1d or 1wk timeframe. Switch timeframe to generate.")
+                        from utils.signal_generator import generate_swing_blueprint, generate_intraday_blueprint
+                        
+                        if trade_mode == "Intraday (Leverage)":
+                            blueprint = generate_intraday_blueprint(ticker, df, strategy=strategy_choice)
                         else:
                             blueprint = generate_swing_blueprint(ticker, df, strategy=strategy_choice)
-                            signal_class = "hold-signal"
-                            if blueprint['decision'] == "BUY": signal_class = "buy-signal"
-                            elif blueprint['decision'] == "SELL": signal_class = "sell-signal"
                             
-                            st.markdown(f"""
-                            <div class="blueprint-card {signal_class}" style="margin-top: 15px;">
-                                <div class="card-title">Strategy Decision: {blueprint['decision']}</div>
-                                <h3 style="color:#ffffff; margin-top:0;">Trade Blueprint</h3>
-                                <p style="color:#e2e8f0; font-size:0.95rem;">{blueprint['reason']}</p>
-                                <table style="width:100%; border-collapse:collapse; color:#ffffff; margin-top:15px;">
-                                    <tr>
-                                        <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Trigger Entry Point</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">₹{blueprint['entry']}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:6px 0; color:#FF5B5B; font-size:0.9rem;">Strict Stop Loss (SL)</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; color:#FF5B5B; font-size:1.1rem;">₹{blueprint['stop_loss']}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:6px 0; color:#00B074; font-size:0.9rem;">Target Objective (TP)</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; color:#00B074; font-size:1.1rem;">₹{blueprint['target']}</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            """, unsafe_allow_html=True)
+                        signal_class = "hold-signal"
+                        if blueprint['decision'] == "BUY": signal_class = "buy-signal"
+                        elif blueprint['decision'] == "SELL": signal_class = "sell-signal"
+                        
+                        st.markdown(f"""
+                        <div class="blueprint-card {signal_class}" style="margin-top: 15px;">
+                            <div class="card-title">Strategy Decision: {blueprint['decision']}</div>
+                            <h3 style="color:#ffffff; margin-top:0;">{trade_mode} Blueprint</h3>
+                            <p style="color:#e2e8f0; font-size:0.95rem;">{blueprint['reason']}</p>
+                            <table style="width:100%; border-collapse:collapse; color:#ffffff; margin-top:15px;">
+                                <tr>
+                                    <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Trigger Entry Point</td>
+                                    <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">₹{blueprint['entry']}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Mathematical Target (TP)</td>
+                                    <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">₹{blueprint['target']}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:6px 0; color:#FF5B5B; font-size:0.9rem;">Strict Stop Loss (SL)</td>
+                                    <td style="padding:6px 0; font-weight:700; text-align:right; color:#FF5B5B; font-size:1.1rem;">₹{blueprint['stop_loss']}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Risk:Reward Ratio</td>
+                                    <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">1 : {blueprint['risk_reward']}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        """, unsafe_allow_html=True)
                     # Collapsible Sub-Sections below the Chart
                     sub_tab2, sub_tab3, sub_tab4 = st.tabs([
                         "📋 Company Profile & Fundamentals",
@@ -598,57 +649,6 @@ with tab1:
                         
                 except Exception as e:
                     st.error(f"Failed to generate analysis: {str(e)}")
-
-# ==================== TAB 2: INTRADAY SCANNER ====================
-with tab2:
-    st.subheader("⚡ High-Velocity Intraday Scan Engine")
-    st.write("Pins down breakout and pivot confluences across highly liquid Nifty constituents in real-time.")
-    
-    # Nifty Liquid Universe
-    scan_universe = [
-        "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", 
-        "TMCV", "SBIN", "BHARTIARTL", "ITC", "LT", 
-        "AXISBANK", "MARUTI", "KOTAKBANK", "M&M", "SUNPHARMA"
-    ]
-    
-    col_l, col_r = st.columns([1, 4])
-    with col_l:
-        st.write("##### One-Click Scanner")
-        st.info("Automatically scans top 15 most liquid Nifty components.")
-        trigger_scan = st.button("Trigger Intraday Scan", type="primary")
-        
-    with col_r:
-        if trigger_scan:
-            results = []
-            progress_bar = st.progress(0.0)
-            
-            for idx, symbol in enumerate(scan_universe):
-                progress_bar.progress((idx + 1) / len(scan_universe))
-                with st.spinner(f"Scanning {symbol}..."):
-                    daily_prev = get_previous_day_ohlc(symbol)
-                    res = run_intraday_scan(symbol, daily_prev)
-                    results.append(res)
-                    
-            progress_bar.empty()
-            
-            df_results = pd.DataFrame(results)
-            
-            if not df_results.empty and "status" in df_results.columns:
-                success_df = df_results[df_results['status'] == 'SUCCESS']
-                if not success_df.empty:
-                    scan_cols = ['symbol', 'trigger_event', 'spot', 'target', 'stop_loss', 'rsi']
-                    view_df = success_df[scan_cols].copy()
-                    view_df.columns = ['Symbol', 'Trigger Event', 'Current Spot (₹)', 'Target Price (₹)', 'Stop Loss (₹)', 'RSI (14)']
-                    
-                    st.dataframe(view_df.style.map(
-                        lambda val: 'background-color: rgba(0, 176, 116, 0.15)' if 'BULLISH' in str(val) or 'REBOUND' in str(val)
-                        else ('background-color: rgba(255, 91, 91, 0.15)' if 'BEARISH' in str(val) or 'REJECTION' in str(val) else ''),
-                        subset=['Trigger Event']
-                    ), use_container_width=True)
-                else:
-                    st.warning("All scans returned connection errors. Try again during market hours.")
-            else:
-                st.warning("Scan failed or returned empty results.")
 
 # ==================== TAB 3: OPTIONS INTELLIGENCE ====================
 with tab3:
