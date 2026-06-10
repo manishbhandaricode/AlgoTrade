@@ -11,7 +11,7 @@ import yfinance as yf
 st.set_page_config(layout="wide", page_title="Indian Market Trading & Analysis Terminal", page_icon="📈")
 
 from utils.data_gateway import DataGateway
-from utils.indicators import calculate_rsi, calculate_ichimoku, find_support_resistance_levels, calculate_daily_pivots
+from utils.indicators import calculate_rsi, calculate_ichimoku, find_support_resistance_levels, calculate_daily_pivots, calculate_macd, calculate_bollinger_bands, calculate_moving_averages, calculate_vwap
 from utils.patterns import detect_candlestick_patterns
 from utils.options_engine import generate_simulated_option_chain, estimate_historical_volatility
 from utils.signal_generator import generate_swing_blueprint, generate_options_signal
@@ -337,10 +337,15 @@ with tab1:
         st.write("##### Graph Indicators")
         show_ichimoku = st.toggle("Ichimoku Cloud", value=False)
         show_sr = st.toggle("Support & Resistance", value=False)
+        show_bb = st.toggle("Bollinger Bands (20,2)", value=False)
+        show_ma = st.toggle("Moving Averages", value=False)
+        show_vwap = st.toggle("VWAP", value=False)
         show_rsi = st.toggle("RSI Momentum (14)", value=False)
+        show_macd = st.toggle("MACD (12,26,9)", value=False)
         
         st.markdown("---")
         st.write("##### AI Strategy")
+        strategy_choice = st.selectbox("Trading Strategy", ["Ichimoku Trend", "Momentum Breakout", "Mean Reversion"])
         show_blueprint = st.toggle("Generate Trade Blueprint", value=False)
         
     with col2:
@@ -356,7 +361,12 @@ with tab1:
                     df_chart = df.copy()
                     df_chart['RSI'] = calculate_rsi(df_chart)
                     ichimoku = calculate_ichimoku(df_chart)
-                    df_chart = pd.concat([df_chart, ichimoku], axis=1)
+                    macd = calculate_macd(df_chart)
+                    bb = calculate_bollinger_bands(df_chart)
+                    mas = calculate_moving_averages(df_chart)
+                    df_chart['VWAP'] = calculate_vwap(df_chart)
+                    
+                    df_chart = pd.concat([df_chart, ichimoku, macd, bb, mas], axis=1)
                     supports, resistances = find_support_resistance_levels(df_chart, window=15)
                     
                     current_price = round(df_chart['Close'].iloc[-1], 2)
@@ -374,8 +384,19 @@ with tab1:
                     """, unsafe_allow_html=True)
                     
                     # Chart Generation
-                    rows = 2 if show_rsi else 1
-                    row_heights = [0.7, 0.3] if show_rsi else [1.0]
+                    extra_rows = sum([show_rsi, show_macd])
+                    rows = 1 + extra_rows
+                    
+                    if extra_rows == 0:
+                        row_heights = [1.0]
+                        chart_height = 500
+                    elif extra_rows == 1:
+                        row_heights = [0.7, 0.3]
+                        chart_height = 650
+                    else:
+                        row_heights = [0.6, 0.2, 0.2]
+                        chart_height = 800
+                        
                     fig = make_subplots(rows=rows, cols=1, shared_xaxes=True, vertical_spacing=0.04, row_heights=row_heights)
                     
                     fig.add_trace(go.Candlestick(
@@ -390,19 +411,40 @@ with tab1:
                         fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_A'], name="Span A", line=dict(color='#10b981', width=1, dash='dot')), row=1, col=1)
                         fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_B'], name="Span B", line=dict(color='#ef4444', width=1, dash='dot')), row=1, col=1)
                         
+                    if show_bb:
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['BB_Upper'], name="BB Upper", line=dict(color='rgba(255,255,255,0.3)', width=1, dash='dot')), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['BB_Lower'], name="BB Lower", line=dict(color='rgba(255,255,255,0.3)', width=1, dash='dot'), fill='tonexty', fillcolor='rgba(255,255,255,0.05)'), row=1, col=1)
+                        
+                    if show_ma:
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['EMA_9'], name="EMA 9", line=dict(color='#38bdf8', width=1.5)), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['EMA_21'], name="EMA 21", line=dict(color='#f472b6', width=1.5)), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['SMA_50'], name="SMA 50", line=dict(color='#fbbf24', width=2)), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['SMA_200'], name="SMA 200", line=dict(color='#ef4444', width=2)), row=1, col=1)
+                        
+                    if show_vwap:
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['VWAP'], name="VWAP", line=dict(color='#a78bfa', width=2)), row=1, col=1)
+                        
                     if show_sr:
                         for level in supports[-3:]:
                             fig.add_hline(y=level, line_color="rgba(0, 176, 116, 0.5)", line_dash="dash", line_width=1, annotation_text=f"Sup ₹{level}", row=1, col=1)
                         for level in resistances[:3]:
                             fig.add_hline(y=level, line_color="rgba(255, 91, 91, 0.5)", line_dash="dash", line_width=1, annotation_text=f"Res ₹{level}", row=1, col=1)
                             
+                    current_sub_row = 2
                     if show_rsi:
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['RSI'], name="RSI", line=dict(color='#8b5cf6', width=1.5)), row=2, col=1)
-                        fig.add_hline(y=70, line_color="rgba(239, 68, 68, 0.5)", line_dash="dash", line_width=1, row=2, col=1)
-                        fig.add_hline(y=30, line_color="rgba(16, 185, 129, 0.5)", line_dash="dash", line_width=1, row=2, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['RSI'], name="RSI", line=dict(color='#8b5cf6', width=1.5)), row=current_sub_row, col=1)
+                        fig.add_hline(y=70, line_color="rgba(239, 68, 68, 0.5)", line_dash="dash", line_width=1, row=current_sub_row, col=1)
+                        fig.add_hline(y=30, line_color="rgba(16, 185, 129, 0.5)", line_dash="dash", line_width=1, row=current_sub_row, col=1)
+                        current_sub_row += 1
+                        
+                    if show_macd:
+                        colors = ['#00B074' if val >= 0 else '#FF5B5B' for val in df_chart['Histogram']]
+                        fig.add_trace(go.Bar(x=df_chart.index, y=df_chart['Histogram'], name="Histogram", marker_color=colors), row=current_sub_row, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['MACD'], name="MACD", line=dict(color='#3b82f6', width=1.5)), row=current_sub_row, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Signal'], name="Signal", line=dict(color='#f59e0b', width=1.5)), row=current_sub_row, col=1)
                         
                     fig.update_layout(
-                        height=600 if show_rsi else 500,
+                        height=chart_height,
                         margin=dict(l=10, r=10, t=10, b=10),
                         xaxis_rangeslider_visible=False,
                         template="plotly_dark",
@@ -420,7 +462,7 @@ with tab1:
                         if is_intraday:
                             st.warning("Trade Blueprint requires 1d or 1wk timeframe. Switch timeframe to generate.")
                         else:
-                            blueprint = generate_swing_blueprint(ticker, df)
+                            blueprint = generate_swing_blueprint(ticker, df, strategy=strategy_choice)
                             signal_class = "hold-signal"
                             if blueprint['decision'] == "BUY": signal_class = "buy-signal"
                             elif blueprint['decision'] == "SELL": signal_class = "sell-signal"
@@ -513,8 +555,9 @@ with tab1:
 # ==================== TAB 2: INTRADAY SCANNER ====================
 with tab2:
     st.subheader("⚡ High-Velocity Intraday Scan Engine")
-    st.write("Pins down breakout and pivot confluences across highly liquid Nifty 50 constituents in real-time.")
+    st.write("Pins down breakout and pivot confluences across highly liquid Nifty constituents in real-time.")
     
+    # Nifty Liquid Universe
     scan_universe = [
         "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", 
         "TMCV", "SBIN", "BHARTIARTL", "ITC", "LT", 
@@ -523,8 +566,8 @@ with tab2:
     
     col_l, col_r = st.columns([1, 4])
     with col_l:
-        st.write("##### Universe Settings")
-        selected_stocks = st.multiselect("Stocks to Scan", scan_universe, default=scan_universe[:8])
+        st.write("##### One-Click Scanner")
+        st.info("Automatically scans top 15 most liquid Nifty components.")
         trigger_scan = st.button("Trigger Intraday Scan", type="primary")
         
     with col_r:
@@ -532,8 +575,8 @@ with tab2:
             results = []
             progress_bar = st.progress(0.0)
             
-            for idx, symbol in enumerate(selected_stocks):
-                progress_bar.progress((idx + 1) / len(selected_stocks))
+            for idx, symbol in enumerate(scan_universe):
+                progress_bar.progress((idx + 1) / len(scan_universe))
                 with st.spinner(f"Scanning {symbol}..."):
                     daily_prev = get_previous_day_ohlc(symbol)
                     res = run_intraday_scan(symbol, daily_prev)
@@ -661,11 +704,10 @@ with tab4:
     
     bt_col1, bt_col2 = st.columns([1, 4])
     with bt_col1:
-        st.write("##### Parameters")
+        st.write("##### One-Click Simulation")
+        st.info("Simulates 2 years of daily data using optimal parameters for the selected strategy.")
         bt_ticker = st.text_input("Backtester Ticker", value=st.session_state["selected_searched_ticker"], key="bt_ticker")
-        bt_strategy = st.selectbox("Select Strategy", ["RSI + Candlestick", "Ichimoku Cloud Trend"])
-        bt_rsi_lower = st.slider("Oversold Buy Threshold", 10, 50, 30)
-        bt_rsi_upper = st.slider("Overbought Sell Threshold", 50, 90, 70)
+        bt_strategy = st.selectbox("Select Strategy", ["Ichimoku Trend", "Momentum Breakout", "Mean Reversion"])
         
         run_backtest_btn = st.button("Run Simulation", type="primary")
         
@@ -679,8 +721,6 @@ with tab4:
                         df_bt,
                         bt_strategy,
                         trade_class="delivery",
-                        rsi_lower=bt_rsi_lower,
-                        rsi_upper=bt_rsi_upper,
                         slippage_percent=slippage,
                         initial_capital=default_capital
                     )

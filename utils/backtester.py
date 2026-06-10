@@ -73,8 +73,6 @@ def run_backtest_simulation(
     df: pd.DataFrame,
     strategy_name: str,
     trade_class: str = "delivery",
-    rsi_lower: float = 30.0,
-    rsi_upper: float = 70.0,
     slippage_percent: float = 0.001,  # 0.1% standard adverse slippage
     initial_capital: float = 100000.0
 ) -> Dict[str, Any]:
@@ -91,17 +89,20 @@ def run_backtest_simulation(
     
     # Pre-calculate indicators on historical closed states
     # Note: df indices are already aligned to avoid repainting
-    from utils.indicators import calculate_rsi, calculate_ichimoku
+    from utils.indicators import calculate_rsi, calculate_ichimoku, calculate_macd, calculate_bollinger_bands, calculate_moving_averages, calculate_atr
     from utils.patterns import detect_candlestick_patterns
     
     df = df.copy()
     df['RSI'] = calculate_rsi(df)
+    df['ATR'] = calculate_atr(df)
     
     ichimoku = calculate_ichimoku(df)
-    df = pd.concat([df, ichimoku], axis=1)
-    
+    macd = calculate_macd(df)
+    bb = calculate_bollinger_bands(df)
+    mas = calculate_moving_averages(df)
     patterns = detect_candlestick_patterns(df)
-    df = pd.concat([df, patterns], axis=1)
+    
+    df = pd.concat([df, ichimoku, macd, bb, mas, patterns], axis=1)
     
     # Chronological loop
     for i in range(1, len(df)):
@@ -114,16 +115,20 @@ def run_backtest_simulation(
         if position == 0:
             buy_signal = False
             
-            if strategy_name == "RSI + Candlestick":
-                # Buy when RSI was oversold on closed bar and we see a bullish pattern
-                buy_signal = (row_prev['RSI'] <= rsi_lower) & (
-                    row_prev['Hammer'] | row_prev['BullishEngulfing']
-                )
-            elif strategy_name == "Ichimoku Cloud Trend":
-                # Buy when price crosses above Span A/B and Tenkan > Kijun
+            if strategy_name == "Ichimoku Trend":
                 buy_signal = (row_prev['Close'] > row_prev['Senkou_A']) & \
                              (row_prev['Close'] > row_prev['Senkou_B']) & \
-                             (row_prev['Tenkan'] > row_prev['Kijun'])
+                             (row_prev['Tenkan'] > row_prev['Kijun']) & \
+                             (row_prev['RSI'] > 50)
+                             
+            elif strategy_name == "Momentum Breakout":
+                buy_signal = (row_prev['EMA_9'] > row_prev['EMA_21']) & \
+                             (row_prev['Histogram'] > 0) & \
+                             (row_prev['RSI'] > 55)
+                             
+            elif strategy_name == "Mean Reversion":
+                buy_signal = (row_prev['Close'] <= row_prev['BB_Lower'] * 1.01) & \
+                             ((row_prev['RSI'] < 35) | row_prev['Hammer'] | row_prev['BullishEngulfing'])
             
             if buy_signal:
                 # Fill at Open of current bar with slippage (buy higher by slippage%)
@@ -142,29 +147,29 @@ def run_backtest_simulation(
         elif position > 0:
             sell_signal = False
             
-            if strategy_name == "RSI + Candlestick":
-                # Exit when RSI becomes overbought or bearish pattern appears
-                sell_signal = (row_prev['RSI'] >= rsi_upper) | (
-                    row_prev['ShootingStar'] | row_prev['BearishEngulfing']
-                )
-            elif strategy_name == "Ichimoku Cloud Trend":
-                # Exit when price drops below Kijun or Tenkan < Kijun
-                sell_signal = (row_prev['Close'] < row_prev['Kijun']) | \
-                              (row_prev['Tenkan'] < row_prev['Kijun'])
+            if strategy_name == "Ichimoku Trend":
+                sell_signal = (row_prev['Close'] < row_prev['Kijun']) | (row_prev['Tenkan'] < row_prev['Kijun'])
+                
+            elif strategy_name == "Momentum Breakout":
+                sell_signal = (row_prev['EMA_9'] < row_prev['EMA_21']) | (row_prev['Histogram'] < 0)
+                
+            elif strategy_name == "Mean Reversion":
+                sell_signal = (row_prev['Close'] >= row_prev['BB_Upper']) | (row_prev['RSI'] > 70)
             
-            # Risk exits: Target 5% profit, Stop Loss 1.5% loss
-            price_change_pct = (row_curr['Low'] - entry_price) / entry_price
-            stop_hit = price_change_pct <= -0.015
+            # Dynamic Risk exits: Target 5%, Stop Loss 1.5x ATR
+            atr_val = row_prev['ATR'] if not pd.isna(row_prev['ATR']) else (entry_price * 0.02)
+            stop_price = entry_price - (atr_val * 1.5)
+            target_price = entry_price + (atr_val * 3.0) # 1:2 RR ratio based on ATR
             
-            target_change_pct = (row_curr['High'] - entry_price) / entry_price
-            target_hit = target_change_pct >= 0.05
+            stop_hit = row_curr['Low'] <= stop_price
+            target_hit = row_curr['High'] >= target_price
             
             if sell_signal or stop_hit or target_hit:
                 # Sell price defaults to Open unless target/stop hit inside bar
                 if stop_hit:
-                    fill_price = entry_price * 0.985  # Filled at Stop Loss
+                    fill_price = stop_price  # Filled at Stop Loss
                 elif target_hit:
-                    fill_price = entry_price * 1.05   # Filled at Target
+                    fill_price = target_price   # Filled at Target
                 else:
                     fill_price = row_curr['Open']
                 

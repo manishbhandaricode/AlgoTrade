@@ -767,9 +767,9 @@
       "source_file": "app.py",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_py",
-      "target": "algotrade_app_get_index_summary",
-      "confidence_score": 1.0
+      "target": "algotrade_app_get_index_summary"
     },
     {
       "relation": "contains",
@@ -777,9 +777,9 @@
       "source_file": "app.py",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_py",
-      "target": "algotrade_app_get_previous_day_ohlc",
-      "confidence_score": 1.0
+      "target": "algotrade_app_get_previous_day_ohlc"
     },
     {
       "relation": "contains",
@@ -787,9 +787,9 @@
       "source_file": "app.py",
       "source_location": "L203",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_py",
-      "target": "algotrade_app_get_company_profile",
-      "confidence_score": 1.0
+      "target": "algotrade_app_get_company_profile"
     },
     {
       "relation": "contains",
@@ -797,9 +797,9 @@
       "source_file": "app.py",
       "source_location": "L222",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_py",
-      "target": "algotrade_app_get_company_news",
-      "confidence_score": 1.0
+      "target": "algotrade_app_get_company_news"
     },
     {
       "relation": "contains",
@@ -807,9 +807,9 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_broker_fees_py",
-      "target": "tests_test_broker_fees_testbrokerfees",
-      "confidence_score": 1.0
+      "target": "tests_test_broker_fees_testbrokerfees"
     },
     {
       "relation": "method",
@@ -817,9 +817,9 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_broker_fees_testbrokerfees",
-      "target": "tests_test_broker_fees_testbrokerfees_test_delivery_charges",
-      "confidence_score": 1.0
+      "target": "tests_test_broker_fees_testbrokerfees_test_delivery_charges"
     },
     {
       "relation": "method",
@@ -827,9 +827,9 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_broker_fees_testbrokerfees",
-      "target": "tests_test_broker_fees_testbrokerfees_test_intraday_charges",
-      "confidence_score": 1.0
+      "target": "tests_test_broker_fees_testbrokerfees_test_intraday_charges"
     },
     {
       "relation": "method",
@@ -837,9 +837,9 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_broker_fees_testbrokerfees",
-      "target": "tests_test_broker_fees_testbrokerfees_test_options_charges",
-      "confidence_score": 1.0
+      "target": "tests_test_broker_fees_testbrokerfees_test_options_charges"
     },
     {
       "relation": "calls",
@@ -880,9 +880,9 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_indicators_py",
-      "target": "tests_test_indicators_testindicators",
-      "confidence_score": 1.0
+      "target": "tests_test_indicators_testindicators"
     },
     {
       "relation": "method",
@@ -890,9 +890,9 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_indicators_testindicators",
-      "target": "tests_test_indicators_testindicators_setup",
-      "confidence_score": 1.0
+      "target": "tests_test_indicators_testindicators_setup"
     },
     {
       "relation": "method",
@@ -900,9 +900,9 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_indicators_testindicators",
-      "target": "tests_test_indicators_testindicators_test_rsi_bounds",
-      "confidence_score": 1.0
+      "target": "tests_test_indicators_testindicators_test_rsi_bounds"
     },
     {
       "relation": "method",
@@ -910,9 +910,9 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_indicators_testindicators",
-      "target": "tests_test_indicators_testindicators_test_pivot_points",
-      "confidence_score": 1.0
+      "target": "tests_test_indicators_testindicators_test_pivot_points"
     },
     {
       "relation": "method",
@@ -920,9 +920,9 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_indicators_testindicators",
-      "target": "tests_test_indicators_testindicators_test_ichimoku_output",
-      "confidence_score": 1.0
+      "target": "tests_test_indicators_testindicators_test_ichimoku_output"
     },
     {
       "relation": "calls",
@@ -963,9 +963,9 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_patterns_py",
-      "target": "tests_test_patterns_testpatterns",
-      "confidence_score": 1.0
+      "target": "tests_test_patterns_testpatterns"
     },
     {
       "relation": "method",
@@ -973,9 +973,9 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_patterns_testpatterns",
-      "target": "tests_test_patterns_testpatterns_test_hammer_detection",
-      "confidence_score": 1.0
+      "target": "tests_test_patterns_testpatterns_test_hammer_detection"
     },
     {
       "relation": "method",
@@ -983,9 +983,9 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_patterns_testpatterns",
-      "target": "tests_test_patterns_testpatterns_test_shooting_star_detection",
-      "confidence_score": 1.0
+      "target": "tests_test_patterns_testpatterns_test_shooting_star_detection"
     },
     {
       "relation": "method",
@@ -993,9 +993,9 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_patterns_testpatterns",
-      "target": "tests_test_patterns_testpatterns_test_marubozu_detection",
-      "confidence_score": 1.0
+      "target": "tests_test_patterns_testpatterns_test_marubozu_detection"
     },
     {
       "relation": "method",
@@ -1003,9 +1003,9 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_patterns_testpatterns",
-      "target": "tests_test_patterns_testpatterns_test_engulfing_detection",
-      "confidence_score": 1.0
+      "target": "tests_test_patterns_testpatterns_test_engulfing_detection"
     },
     {
       "relation": "calls",
@@ -1057,9 +1057,9 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_backtester_py",
-      "target": "utils_backtester_calculate_indian_transaction_costs",
-      "confidence_score": 1.0
+      "target": "utils_backtester_calculate_indian_transaction_costs"
     },
     {
       "relation": "contains",
@@ -1067,9 +1067,9 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_backtester_py",
-      "target": "utils_backtester_run_backtest_simulation",
-      "confidence_score": 1.0
+      "target": "utils_backtester_run_backtest_simulation"
     },
     {
       "relation": "calls",
@@ -1078,9 +1078,9 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_backtester_run_backtest_simulation",
-      "target": "utils_backtester_calculate_indian_transaction_costs",
-      "confidence_score": 1.0
+      "target": "utils_backtester_calculate_indian_transaction_costs"
     },
     {
       "relation": "rationale_for",
@@ -1088,9 +1088,9 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_backtester_rationale_11",
-      "target": "utils_backtester_calculate_indian_transaction_costs",
-      "confidence_score": 1.0
+      "target": "utils_backtester_calculate_indian_transaction_costs"
     },
     {
       "relation": "rationale_for",
@@ -1098,9 +1098,9 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_backtester_rationale_81",
-      "target": "utils_backtester_run_backtest_simulation",
-      "confidence_score": 1.0
+      "target": "utils_backtester_run_backtest_simulation"
     },
     {
       "relation": "calls",
@@ -1141,9 +1141,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_py",
-      "target": "utils_data_gateway_datagateway",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_datagateway"
     },
     {
       "relation": "contains",
@@ -1151,9 +1151,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_py",
-      "target": "utils_data_gateway_normalize_symbol",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_normalize_symbol"
     },
     {
       "relation": "contains",
@@ -1161,9 +1161,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_py",
-      "target": "utils_data_gateway_fetch_ohlcv",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_fetch_ohlcv"
     },
     {
       "relation": "contains",
@@ -1171,9 +1171,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_py",
-      "target": "utils_data_gateway_get_live_spot_price",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_get_live_spot_price"
     },
     {
       "relation": "contains",
@@ -1181,9 +1181,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_py",
-      "target": "utils_data_gateway_is_market_open",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_is_market_open"
     },
     {
       "relation": "rationale_for",
@@ -1191,9 +1191,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_rationale_7",
-      "target": "utils_data_gateway_datagateway",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_datagateway"
     },
     {
       "relation": "calls",
@@ -1202,9 +1202,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_fetch_ohlcv",
-      "target": "utils_data_gateway_normalize_symbol",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_normalize_symbol"
     },
     {
       "relation": "calls",
@@ -1213,9 +1213,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_get_live_spot_price",
-      "target": "utils_data_gateway_normalize_symbol",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_normalize_symbol"
     },
     {
       "relation": "calls",
@@ -1224,9 +1224,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_fetch_ohlcv",
-      "target": "utils_data_gateway_is_market_open",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_is_market_open"
     },
     {
       "relation": "calls",
@@ -1235,9 +1235,9 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_data_gateway_get_live_spot_price",
-      "target": "utils_data_gateway_fetch_ohlcv",
-      "confidence_score": 1.0
+      "target": "utils_data_gateway_fetch_ohlcv"
     },
     {
       "relation": "contains",
@@ -1245,9 +1245,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_py",
-      "target": "utils_indicators_calculate_rsi",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_rsi"
     },
     {
       "relation": "contains",
@@ -1255,9 +1255,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_py",
-      "target": "utils_indicators_calculate_daily_pivots",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_daily_pivots"
     },
     {
       "relation": "contains",
@@ -1265,9 +1265,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_py",
-      "target": "utils_indicators_find_support_resistance_levels",
-      "confidence_score": 1.0
+      "target": "utils_indicators_find_support_resistance_levels"
     },
     {
       "relation": "contains",
@@ -1275,9 +1275,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_py",
-      "target": "utils_indicators_calculate_ichimoku",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_ichimoku"
     },
     {
       "relation": "rationale_for",
@@ -1285,9 +1285,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_rationale_5",
-      "target": "utils_indicators_calculate_rsi",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_rsi"
     },
     {
       "relation": "calls",
@@ -1328,9 +1328,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_rationale_28",
-      "target": "utils_indicators_calculate_daily_pivots",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_daily_pivots"
     },
     {
       "relation": "calls",
@@ -1360,9 +1360,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_rationale_47",
-      "target": "utils_indicators_find_support_resistance_levels",
-      "confidence_score": 1.0
+      "target": "utils_indicators_find_support_resistance_levels"
     },
     {
       "relation": "calls",
@@ -1381,9 +1381,9 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_indicators_rationale_89",
-      "target": "utils_indicators_calculate_ichimoku",
-      "confidence_score": 1.0
+      "target": "utils_indicators_calculate_ichimoku"
     },
     {
       "relation": "calls",
@@ -1402,9 +1402,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_py",
-      "target": "utils_intraday_scanner_scan_opening_range_breakout",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_opening_range_breakout"
     },
     {
       "relation": "contains",
@@ -1412,9 +1412,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_py",
-      "target": "utils_intraday_scanner_scan_pivot_confluence",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_pivot_confluence"
     },
     {
       "relation": "contains",
@@ -1422,9 +1422,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_py",
-      "target": "utils_intraday_scanner_run_intraday_scan",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_run_intraday_scan"
     },
     {
       "relation": "calls",
@@ -1433,9 +1433,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_run_intraday_scan",
-      "target": "utils_intraday_scanner_scan_opening_range_breakout",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_opening_range_breakout"
     },
     {
       "relation": "rationale_for",
@@ -1443,9 +1443,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_rationale_7",
-      "target": "utils_intraday_scanner_scan_opening_range_breakout",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_opening_range_breakout"
     },
     {
       "relation": "calls",
@@ -1454,9 +1454,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_run_intraday_scan",
-      "target": "utils_intraday_scanner_scan_pivot_confluence",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_pivot_confluence"
     },
     {
       "relation": "rationale_for",
@@ -1464,9 +1464,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_rationale_31",
-      "target": "utils_intraday_scanner_scan_pivot_confluence",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_scan_pivot_confluence"
     },
     {
       "relation": "rationale_for",
@@ -1474,9 +1474,9 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_intraday_scanner_rationale_71",
-      "target": "utils_intraday_scanner_run_intraday_scan",
-      "confidence_score": 1.0
+      "target": "utils_intraday_scanner_run_intraday_scan"
     },
     {
       "relation": "contains",
@@ -1484,9 +1484,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_py",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "contains",
@@ -1494,9 +1494,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_py",
-      "target": "utils_journal_add_journal_entry",
-      "confidence_score": 1.0
+      "target": "utils_journal_add_journal_entry"
     },
     {
       "relation": "contains",
@@ -1504,9 +1504,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_py",
-      "target": "utils_journal_get_journal_entries",
-      "confidence_score": 1.0
+      "target": "utils_journal_get_journal_entries"
     },
     {
       "relation": "contains",
@@ -1514,9 +1514,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_py",
-      "target": "utils_journal_delete_journal_entry",
-      "confidence_score": 1.0
+      "target": "utils_journal_delete_journal_entry"
     },
     {
       "relation": "contains",
@@ -1524,9 +1524,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_py",
-      "target": "utils_journal_save_bulk_entries",
-      "confidence_score": 1.0
+      "target": "utils_journal_save_bulk_entries"
     },
     {
       "relation": "calls",
@@ -1535,9 +1535,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_add_journal_entry",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "calls",
@@ -1546,9 +1546,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_get_journal_entries",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "calls",
@@ -1557,9 +1557,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_delete_journal_entry",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "calls",
@@ -1568,9 +1568,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_save_bulk_entries",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "rationale_for",
@@ -1578,9 +1578,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_rationale_10",
-      "target": "utils_journal_init_db",
-      "confidence_score": 1.0
+      "target": "utils_journal_init_db"
     },
     {
       "relation": "rationale_for",
@@ -1588,9 +1588,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_rationale_41",
-      "target": "utils_journal_add_journal_entry",
-      "confidence_score": 1.0
+      "target": "utils_journal_add_journal_entry"
     },
     {
       "relation": "rationale_for",
@@ -1598,9 +1598,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_rationale_58",
-      "target": "utils_journal_get_journal_entries",
-      "confidence_score": 1.0
+      "target": "utils_journal_get_journal_entries"
     },
     {
       "relation": "rationale_for",
@@ -1608,9 +1608,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_rationale_69",
-      "target": "utils_journal_delete_journal_entry",
-      "confidence_score": 1.0
+      "target": "utils_journal_delete_journal_entry"
     },
     {
       "relation": "rationale_for",
@@ -1618,9 +1618,9 @@
       "source_file": "utils\\journal.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_journal_rationale_80",
-      "target": "utils_journal_save_bulk_entries",
-      "confidence_score": 1.0
+      "target": "utils_journal_save_bulk_entries"
     },
     {
       "relation": "contains",
@@ -1628,9 +1628,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_py",
-      "target": "utils_options_engine_norm_cdf",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_norm_cdf"
     },
     {
       "relation": "contains",
@@ -1638,9 +1638,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_py",
-      "target": "utils_options_engine_calculate_black_scholes",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_calculate_black_scholes"
     },
     {
       "relation": "contains",
@@ -1648,9 +1648,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_py",
-      "target": "utils_options_engine_estimate_historical_volatility",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_estimate_historical_volatility"
     },
     {
       "relation": "contains",
@@ -1658,9 +1658,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_py",
-      "target": "utils_options_engine_get_next_expiry_date",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_get_next_expiry_date"
     },
     {
       "relation": "contains",
@@ -1668,9 +1668,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_py",
-      "target": "utils_options_engine_generate_simulated_option_chain",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_generate_simulated_option_chain"
     },
     {
       "relation": "calls",
@@ -1679,9 +1679,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_calculate_black_scholes",
-      "target": "utils_options_engine_norm_cdf",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_norm_cdf"
     },
     {
       "relation": "rationale_for",
@@ -1689,9 +1689,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_rationale_7",
-      "target": "utils_options_engine_norm_cdf",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_norm_cdf"
     },
     {
       "relation": "calls",
@@ -1700,9 +1700,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_generate_simulated_option_chain",
-      "target": "utils_options_engine_calculate_black_scholes",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_calculate_black_scholes"
     },
     {
       "relation": "rationale_for",
@@ -1710,9 +1710,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_rationale_17",
-      "target": "utils_options_engine_calculate_black_scholes",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_calculate_black_scholes"
     },
     {
       "relation": "rationale_for",
@@ -1720,9 +1720,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_rationale_44",
-      "target": "utils_options_engine_estimate_historical_volatility",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_estimate_historical_volatility"
     },
     {
       "relation": "rationale_for",
@@ -1730,9 +1730,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_rationale_58",
-      "target": "utils_options_engine_get_next_expiry_date",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_get_next_expiry_date"
     },
     {
       "relation": "rationale_for",
@@ -1740,9 +1740,9 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_options_engine_rationale_68",
-      "target": "utils_options_engine_generate_simulated_option_chain",
-      "confidence_score": 1.0
+      "target": "utils_options_engine_generate_simulated_option_chain"
     },
     {
       "relation": "contains",
@@ -1750,9 +1750,9 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_patterns_py",
-      "target": "utils_patterns_detect_candlestick_patterns",
-      "confidence_score": 1.0
+      "target": "utils_patterns_detect_candlestick_patterns"
     },
     {
       "relation": "rationale_for",
@@ -1760,9 +1760,9 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_patterns_rationale_5",
-      "target": "utils_patterns_detect_candlestick_patterns",
-      "confidence_score": 1.0
+      "target": "utils_patterns_detect_candlestick_patterns"
     },
     {
       "relation": "calls",
@@ -1792,9 +1792,9 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_signal_generator_py",
-      "target": "utils_signal_generator_generate_swing_blueprint",
-      "confidence_score": 1.0
+      "target": "utils_signal_generator_generate_swing_blueprint"
     },
     {
       "relation": "contains",
@@ -1802,9 +1802,9 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_signal_generator_py",
-      "target": "utils_signal_generator_generate_options_signal",
-      "confidence_score": 1.0
+      "target": "utils_signal_generator_generate_options_signal"
     },
     {
       "relation": "rationale_for",
@@ -1812,9 +1812,9 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_signal_generator_rationale_8",
-      "target": "utils_signal_generator_generate_swing_blueprint",
-      "confidence_score": 1.0
+      "target": "utils_signal_generator_generate_swing_blueprint"
     },
     {
       "relation": "rationale_for",
@@ -1822,9 +1822,9 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_signal_generator_rationale_117",
-      "target": "utils_signal_generator_generate_options_signal",
-      "confidence_score": 1.0
+      "target": "utils_signal_generator_generate_options_signal"
     }
   ],
   "hyperedges": []
