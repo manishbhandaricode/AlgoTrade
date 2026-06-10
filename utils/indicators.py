@@ -62,8 +62,7 @@ def calculate_vwap(df: pd.DataFrame) -> pd.Series:
     
     if hasattr(df.index, 'date'):
         # Daily VWAP calculation for intraday charts
-        df['Date'] = df.index.date
-        vwap = df.groupby('Date')['TPV'].cumsum() / df.groupby('Date')['Volume'].cumsum()
+        vwap = df.groupby(df.index.date)['TPV'].cumsum() / df.groupby(df.index.date)['Volume'].cumsum()
     else:
         # Fallback if no datetime index
         vwap = df['TPV'].cumsum() / df['Volume'].cumsum()

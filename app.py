@@ -136,8 +136,31 @@ st.markdown("""
     .stButton > button {
         border-radius: 8px;
         font-weight: 500;
-        transition: all 0.2s ease;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Input Fields */
+    .stTextInput > div > div > input, .stSelectbox > div > div > div {
+        transition: all 0.2s ease-in-out;
+    }
+    .stTextInput > div > div > input:focus, .stSelectbox > div > div > div:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Lightweight fade-in animation for main app */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .main .block-container {
+        animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
     .stButton > button[kind="primary"] {
         background-color: #2563EB;
         color: white;

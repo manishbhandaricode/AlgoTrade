@@ -9,7 +9,7 @@
       "source_file": "app.py",
       "source_location": "L1",
       "id": "app_py",
-      "community": 7,
+      "community": 8,
       "norm_label": "app.py"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "app.py",
       "source_location": "L163",
       "id": "algotrade_app_get_index_summary",
-      "community": 7,
+      "community": 8,
       "norm_label": "get_index_summary()"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "app.py",
       "source_location": "L180",
       "id": "algotrade_app_get_previous_day_ohlc",
-      "community": 7,
+      "community": 8,
       "norm_label": "get_previous_day_ohlc()"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "app.py",
       "source_location": "L203",
       "id": "algotrade_app_get_company_profile",
-      "community": 7,
+      "community": 8,
       "norm_label": "get_company_profile()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "app.py",
       "source_location": "L222",
       "id": "algotrade_app_get_company_news",
-      "community": 7,
+      "community": 8,
       "norm_label": "get_company_news()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L1",
       "id": "tests_test_broker_fees_py",
-      "community": 4,
+      "community": 5,
       "norm_label": "test_broker_fees.py"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L4",
       "id": "tests_test_broker_fees_testbrokerfees",
-      "community": 4,
+      "community": 5,
       "norm_label": "testbrokerfees"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L5",
       "id": "tests_test_broker_fees_testbrokerfees_test_delivery_charges",
-      "community": 4,
+      "community": 5,
       "norm_label": ".test_delivery_charges()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L20",
       "id": "tests_test_broker_fees_testbrokerfees_test_intraday_charges",
-      "community": 4,
+      "community": 5,
       "norm_label": ".test_intraday_charges()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L30",
       "id": "tests_test_broker_fees_testbrokerfees_test_options_charges",
-      "community": 4,
+      "community": 5,
       "norm_label": ".test_options_charges()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L33",
       "id": "tests_test_indicators_testindicators_test_ichimoku_output",
-      "community": 1,
+      "community": 0,
       "norm_label": ".test_ichimoku_output()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L1",
       "id": "tests_test_patterns_py",
-      "community": 0,
+      "community": 4,
       "norm_label": "test_patterns.py"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L6",
       "id": "tests_test_patterns_testpatterns",
-      "community": 0,
+      "community": 4,
       "norm_label": "testpatterns"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L7",
       "id": "tests_test_patterns_testpatterns_test_hammer_detection",
-      "community": 0,
+      "community": 4,
       "norm_label": ".test_hammer_detection()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L21",
       "id": "tests_test_patterns_testpatterns_test_shooting_star_detection",
-      "community": 0,
+      "community": 4,
       "norm_label": ".test_shooting_star_detection()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L35",
       "id": "tests_test_patterns_testpatterns_test_marubozu_detection",
-      "community": 0,
+      "community": 4,
       "norm_label": ".test_marubozu_detection()"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L47",
       "id": "tests_test_patterns_testpatterns_test_engulfing_detection",
-      "community": 0,
+      "community": 4,
       "norm_label": ".test_engulfing_detection()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L1",
       "id": "utils_backtester_py",
-      "community": 4,
+      "community": 0,
       "norm_label": "backtester.py"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L5",
       "id": "utils_backtester_calculate_indian_transaction_costs",
-      "community": 4,
+      "community": 5,
       "norm_label": "calculate_indian_transaction_costs()"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L72",
       "id": "utils_backtester_run_backtest_simulation",
-      "community": 4,
+      "community": 0,
       "norm_label": "run_backtest_simulation()"
     },
     {
@@ -234,16 +234,16 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L11",
       "id": "utils_backtester_rationale_11",
-      "community": 4,
+      "community": 5,
       "norm_label": "calculates detailed indian stock market regulatory charges and brokerage fees."
     },
     {
       "label": "Simulates trades chronologically on a historical dataframe to verify profitabili",
       "file_type": "rationale",
       "source_file": "utils\\backtester.py",
-      "source_location": "L81",
-      "id": "utils_backtester_rationale_81",
-      "community": 4,
+      "source_location": "L79",
+      "id": "utils_backtester_rationale_79",
+      "community": 0,
       "norm_label": "simulates trades chronologically on a historical dataframe to verify profitabili"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L1",
       "id": "utils_data_gateway_py",
-      "community": 5,
+      "community": 6,
       "norm_label": "data_gateway.py"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L6",
       "id": "utils_data_gateway_datagateway",
-      "community": 5,
+      "community": 6,
       "norm_label": "datagateway"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L13",
       "id": "utils_data_gateway_normalize_symbol",
-      "community": 5,
+      "community": 6,
       "norm_label": "normalize_symbol()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L45",
       "id": "utils_data_gateway_fetch_ohlcv",
-      "community": 5,
+      "community": 6,
       "norm_label": "fetch_ohlcv()"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L86",
       "id": "utils_data_gateway_get_live_spot_price",
-      "community": 5,
+      "community": 6,
       "norm_label": "get_live_spot_price()"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L108",
       "id": "utils_data_gateway_is_market_open",
-      "community": 5,
+      "community": 6,
       "norm_label": "is_market_open()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L7",
       "id": "utils_data_gateway_rationale_7",
-      "community": 5,
+      "community": 6,
       "norm_label": "on-demand data gateway to fetch historical and intraday data from yfinance."
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L14",
       "id": "utils_data_gateway_rationale_14",
-      "community": 8,
+      "community": 9,
       "norm_label": "normalizes ticker symbols to yfinance-compatible formats.         e.g. nifty 50"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L46",
       "id": "utils_data_gateway_rationale_46",
-      "community": 9,
+      "community": 10,
       "norm_label": "fetches adjusted ohlcv data arrays from yfinance.         supports standard inte"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L87",
       "id": "utils_data_gateway_rationale_87",
-      "community": 10,
+      "community": 11,
       "norm_label": "fetches the current live spot price for an asset.         uses 1d/1m query to fe"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L109",
       "id": "utils_data_gateway_rationale_109",
-      "community": 11,
+      "community": 12,
       "norm_label": "determines if the indian stock market (nse/bse) is currently open.         tradi"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L1",
       "id": "utils_indicators_py",
-      "community": 1,
+      "community": 0,
       "norm_label": "indicators.py"
     },
     {
@@ -360,14 +360,59 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L4",
       "id": "utils_indicators_calculate_rsi",
-      "community": 0,
+      "community": 1,
       "norm_label": "calculate_rsi()"
+    },
+    {
+      "label": "calculate_macd()",
+      "file_type": "code",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L17",
+      "id": "utils_indicators_calculate_macd",
+      "community": 0,
+      "norm_label": "calculate_macd()"
+    },
+    {
+      "label": "calculate_bollinger_bands()",
+      "file_type": "code",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L26",
+      "id": "utils_indicators_calculate_bollinger_bands",
+      "community": 0,
+      "norm_label": "calculate_bollinger_bands()"
+    },
+    {
+      "label": "calculate_moving_averages()",
+      "file_type": "code",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L34",
+      "id": "utils_indicators_calculate_moving_averages",
+      "community": 0,
+      "norm_label": "calculate_moving_averages()"
+    },
+    {
+      "label": "calculate_atr()",
+      "file_type": "code",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L43",
+      "id": "utils_indicators_calculate_atr",
+      "community": 0,
+      "norm_label": "calculate_atr()"
+    },
+    {
+      "label": "calculate_vwap()",
+      "file_type": "code",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L56",
+      "id": "utils_indicators_calculate_vwap",
+      "community": 0,
+      "norm_label": "calculate_vwap()"
     },
     {
       "label": "calculate_daily_pivots()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L27",
+      "source_location": "L73",
       "id": "utils_indicators_calculate_daily_pivots",
       "community": 1,
       "norm_label": "calculate_daily_pivots()"
@@ -376,55 +421,19 @@
       "label": "find_support_resistance_levels()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L46",
+      "source_location": "L88",
       "id": "utils_indicators_find_support_resistance_levels",
-      "community": 1,
+      "community": 0,
       "norm_label": "find_support_resistance_levels()"
     },
     {
       "label": "calculate_ichimoku()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L88",
+      "source_location": "L113",
       "id": "utils_indicators_calculate_ichimoku",
-      "community": 1,
-      "norm_label": "calculate_ichimoku()"
-    },
-    {
-      "label": "Calculates Relative Strength Index (RSI) using Wilder's smoothing technique.",
-      "file_type": "rationale",
-      "source_file": "utils\\indicators.py",
-      "source_location": "L5",
-      "id": "utils_indicators_rationale_5",
       "community": 0,
-      "norm_label": "calculates relative strength index (rsi) using wilder's smoothing technique."
-    },
-    {
-      "label": "Calculates standard Floor Pivot Points based on previous session's OHLC.",
-      "file_type": "rationale",
-      "source_file": "utils\\indicators.py",
-      "source_location": "L28",
-      "id": "utils_indicators_rationale_28",
-      "community": 1,
-      "norm_label": "calculates standard floor pivot points based on previous session's ohlc."
-    },
-    {
-      "label": "Identifies historical support and resistance zones based on local peaks and trou",
-      "file_type": "rationale",
-      "source_file": "utils\\indicators.py",
-      "source_location": "L47",
-      "id": "utils_indicators_rationale_47",
-      "community": 1,
-      "norm_label": "identifies historical support and resistance zones based on local peaks and trou"
-    },
-    {
-      "label": "Calculates Ichimoku Cloud components.     Note: Senkou Span A and B are shifted",
-      "file_type": "rationale",
-      "source_file": "utils\\indicators.py",
-      "source_location": "L89",
-      "id": "utils_indicators_rationale_89",
-      "community": 1,
-      "norm_label": "calculates ichimoku cloud components.     note: senkou span a and b are shifted"
+      "norm_label": "calculate_ichimoku()"
     },
     {
       "label": "intraday_scanner.py",
@@ -432,7 +441,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L1",
       "id": "utils_intraday_scanner_py",
-      "community": 6,
+      "community": 7,
       "norm_label": "intraday_scanner.py"
     },
     {
@@ -441,7 +450,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L6",
       "id": "utils_intraday_scanner_scan_opening_range_breakout",
-      "community": 6,
+      "community": 7,
       "norm_label": "scan_opening_range_breakout()"
     },
     {
@@ -450,7 +459,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L30",
       "id": "utils_intraday_scanner_scan_pivot_confluence",
-      "community": 6,
+      "community": 7,
       "norm_label": "scan_pivot_confluence()"
     },
     {
@@ -459,7 +468,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L70",
       "id": "utils_intraday_scanner_run_intraday_scan",
-      "community": 6,
+      "community": 7,
       "norm_label": "run_intraday_scan()"
     },
     {
@@ -468,7 +477,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L7",
       "id": "utils_intraday_scanner_rationale_7",
-      "community": 6,
+      "community": 7,
       "norm_label": "checks for opening range breakout (orb) on 15m candlestick data.     opening ran"
     },
     {
@@ -477,7 +486,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L31",
       "id": "utils_intraday_scanner_rationale_31",
-      "community": 6,
+      "community": 7,
       "norm_label": "checks if price is within 0.1% of daily s1/s2 or r1/r2 pivot levels     while rs"
     },
     {
@@ -486,7 +495,7 @@
       "source_file": "utils\\intraday_scanner.py",
       "source_location": "L71",
       "id": "utils_intraday_scanner_rationale_71",
-      "community": 6,
+      "community": 7,
       "norm_label": "runs both orb and pivot confluence scans on a given stock symbol."
     },
     {
@@ -693,7 +702,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L1",
       "id": "utils_patterns_py",
-      "community": 0,
+      "community": 4,
       "norm_label": "patterns.py"
     },
     {
@@ -702,7 +711,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L4",
       "id": "utils_patterns_detect_candlestick_patterns",
-      "community": 0,
+      "community": 4,
       "norm_label": "detect_candlestick_patterns()"
     },
     {
@@ -711,7 +720,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L5",
       "id": "utils_patterns_rationale_5",
-      "community": 0,
+      "community": 4,
       "norm_label": "programmatically detects candlestick patterns on a pandas dataframe.     returns"
     },
     {
@@ -720,14 +729,14 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L1",
       "id": "utils_signal_generator_py",
-      "community": 0,
+      "community": 1,
       "norm_label": "signal_generator.py"
     },
     {
       "label": "generate_swing_blueprint()",
       "file_type": "code",
       "source_file": "utils\\signal_generator.py",
-      "source_location": "L7",
+      "source_location": "L9",
       "id": "utils_signal_generator_generate_swing_blueprint",
       "community": 0,
       "norm_label": "generate_swing_blueprint()"
@@ -736,28 +745,91 @@
       "label": "generate_options_signal()",
       "file_type": "code",
       "source_file": "utils\\signal_generator.py",
-      "source_location": "L110",
+      "source_location": "L107",
       "id": "utils_signal_generator_generate_options_signal",
-      "community": 0,
+      "community": 1,
       "norm_label": "generate_options_signal()"
+    },
+    {
+      "label": "Generates a swing trade plan based on 1D/1W closed bars using multiple strategie",
+      "file_type": "rationale",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L10",
+      "id": "utils_signal_generator_rationale_10",
+      "community": 0,
+      "norm_label": "generates a swing trade plan based on 1d/1w closed bars using multiple strategie"
+    },
+    {
+      "label": "Directional options strategy recommendations (Calls or Puts) based on index mome",
+      "file_type": "rationale",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L114",
+      "id": "utils_signal_generator_rationale_114",
+      "community": 1,
+      "norm_label": "directional options strategy recommendations (calls or puts) based on index mome"
+    },
+    {
+      "label": "Simulates trades chronologically on a historical dataframe to verify profitabili",
+      "file_type": "rationale",
+      "source_file": "utils\\backtester.py",
+      "source_location": "L81",
+      "community": 0,
+      "norm_label": "simulates trades chronologically on a historical dataframe to verify profitabili",
+      "id": "utils_backtester_rationale_81"
+    },
+    {
+      "label": "Calculates Relative Strength Index (RSI) using Wilder's smoothing technique.",
+      "file_type": "rationale",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L5",
+      "community": 1,
+      "norm_label": "calculates relative strength index (rsi) using wilder's smoothing technique.",
+      "id": "utils_indicators_rationale_5"
+    },
+    {
+      "label": "Calculates standard Floor Pivot Points based on previous session's OHLC.",
+      "file_type": "rationale",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L28",
+      "community": 1,
+      "norm_label": "calculates standard floor pivot points based on previous session's ohlc.",
+      "id": "utils_indicators_rationale_28"
+    },
+    {
+      "label": "Identifies historical support and resistance zones based on local peaks and trou",
+      "file_type": "rationale",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L47",
+      "community": 0,
+      "norm_label": "identifies historical support and resistance zones based on local peaks and trou",
+      "id": "utils_indicators_rationale_47"
+    },
+    {
+      "label": "Calculates Ichimoku Cloud components.     Note: Senkou Span A and B are shifted",
+      "file_type": "rationale",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L89",
+      "community": 0,
+      "norm_label": "calculates ichimoku cloud components.     note: senkou span a and b are shifted",
+      "id": "utils_indicators_rationale_89"
     },
     {
       "label": "Generates a swing trade plan based on 1D/1W closed bars.     Evaluates Ichimoku",
       "file_type": "rationale",
       "source_file": "utils\\signal_generator.py",
       "source_location": "L8",
-      "id": "utils_signal_generator_rationale_8",
       "community": 0,
-      "norm_label": "generates a swing trade plan based on 1d/1w closed bars.     evaluates ichimoku"
+      "norm_label": "generates a swing trade plan based on 1d/1w closed bars.     evaluates ichimoku",
+      "id": "utils_signal_generator_rationale_8"
     },
     {
       "label": "Directional options strategy recommendations (Calls or Puts) based on index mome",
       "file_type": "rationale",
       "source_file": "utils\\signal_generator.py",
       "source_location": "L117",
-      "id": "utils_signal_generator_rationale_117",
-      "community": 0,
-      "norm_label": "directional options strategy recommendations (calls or puts) based on index mome"
+      "community": 1,
+      "norm_label": "directional options strategy recommendations (calls or puts) based on index mome",
+      "id": "utils_signal_generator_rationale_117"
     }
   ],
   "links": [
@@ -1096,10 +1168,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\backtester.py",
-      "source_location": "L81",
+      "source_location": "L79",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_backtester_rationale_81",
+      "source": "utils_backtester_rationale_79",
       "target": "utils_backtester_run_backtest_simulation"
     },
     {
@@ -1119,6 +1191,17 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "utils\\backtester.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "utils_backtester_run_backtest_simulation",
+      "target": "utils_indicators_calculate_atr"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\backtester.py",
       "source_location": "L100",
       "weight": 1.0,
       "source": "utils_backtester_run_backtest_simulation",
@@ -1130,10 +1213,53 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "utils\\backtester.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "utils_backtester_run_backtest_simulation",
+      "target": "utils_indicators_calculate_macd"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\backtester.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "utils_backtester_run_backtest_simulation",
+      "target": "utils_indicators_calculate_bollinger_bands"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\backtester.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "utils_backtester_run_backtest_simulation",
+      "target": "utils_indicators_calculate_moving_averages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\backtester.py",
       "source_location": "L103",
       "weight": 1.0,
       "source": "utils_backtester_run_backtest_simulation",
       "target": "utils_patterns_detect_candlestick_patterns"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\backtester.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_backtester_rationale_81",
+      "target": "utils_backtester_run_backtest_simulation"
     },
     {
       "relation": "contains",
@@ -1253,6 +1379,56 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "utils\\indicators.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_py",
+      "target": "utils_indicators_calculate_macd"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_py",
+      "target": "utils_indicators_calculate_bollinger_bands"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_py",
+      "target": "utils_indicators_calculate_moving_averages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_py",
+      "target": "utils_indicators_calculate_atr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_py",
+      "target": "utils_indicators_calculate_vwap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1278,16 +1454,6 @@
       "confidence_score": 1.0,
       "source": "utils_indicators_py",
       "target": "utils_indicators_calculate_ichimoku"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "utils\\indicators.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_indicators_rationale_5",
-      "target": "utils_indicators_calculate_rsi"
     },
     {
       "relation": "calls",
@@ -1326,11 +1492,55 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\indicators.py",
-      "source_location": "L28",
+      "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_indicators_rationale_28",
-      "target": "utils_indicators_calculate_daily_pivots"
+      "source": "utils_indicators_rationale_5",
+      "target": "utils_indicators_calculate_rsi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_macd"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_bollinger_bands"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_moving_averages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_atr"
     },
     {
       "relation": "calls",
@@ -1358,11 +1568,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\indicators.py",
-      "source_location": "L47",
+      "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_indicators_rationale_47",
-      "target": "utils_indicators_find_support_resistance_levels"
+      "source": "utils_indicators_rationale_28",
+      "target": "utils_indicators_calculate_daily_pivots"
     },
     {
       "relation": "calls",
@@ -1379,11 +1589,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\indicators.py",
-      "source_location": "L89",
+      "source_location": "L47",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_indicators_rationale_89",
-      "target": "utils_indicators_calculate_ichimoku"
+      "source": "utils_indicators_rationale_47",
+      "target": "utils_indicators_find_support_resistance_levels"
     },
     {
       "relation": "calls",
@@ -1394,6 +1604,16 @@
       "source_location": "L24",
       "weight": 1.0,
       "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_ichimoku"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\indicators.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_indicators_rationale_89",
       "target": "utils_indicators_calculate_ichimoku"
     },
     {
@@ -1810,11 +2030,31 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\signal_generator.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_signal_generator_rationale_10",
+      "target": "utils_signal_generator_generate_swing_blueprint"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\signal_generator.py",
       "source_location": "L8",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "utils_signal_generator_rationale_8",
       "target": "utils_signal_generator_generate_swing_blueprint"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_signal_generator_rationale_114",
+      "target": "utils_signal_generator_generate_options_signal"
     },
     {
       "relation": "rationale_for",
