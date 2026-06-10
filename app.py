@@ -321,32 +321,31 @@ with tab1:
     
     with col1:
         st.write("##### Input Parameters")
-        ticker = st.text_input("Ticker Symbol (NSE / BSE)", value=st.session_state["selected_searched_ticker"])
-        exchange = st.selectbox("Exchange (Fallback Suffix)", ["NSE", "BSE"], index=0)
+        ticker = st.text_input("Ticker Symbol", value=st.session_state["selected_searched_ticker"])
+        exchange = st.selectbox("Exchange", ["NSE", "BSE"], index=0)
         
         timeframe = st.selectbox("Timeframe", ["1m", "2m", "5m", "10m", "15m", "30m", "1h", "1d", "1wk"], index=7)
         
-        # Dynamically adjust lookbacks
-        if timeframe == "1m":
-            lookback_options = ["1d", "5d", "7d"]
-            lookback_default = 1
-        elif timeframe in ["2m", "5m", "10m", "15m", "30m"]:
-            lookback_options = ["1d", "5d", "1mo"]
-            lookback_default = 1
-        elif timeframe == "1h":
-            lookback_options = ["5d", "1mo", "1y"]
-            lookback_default = 1
-        else:
-            lookback_options = ["1mo", "1y", "2y", "3y"]
-            lookback_default = 1
+        if timeframe == "1m": lookback_options, lookback_default = ["1d", "5d", "7d"], 1
+        elif timeframe in ["2m", "5m", "10m", "15m", "30m"]: lookback_options, lookback_default = ["1d", "5d", "1mo"], 1
+        elif timeframe == "1h": lookback_options, lookback_default = ["5d", "1mo", "1y"], 1
+        else: lookback_options, lookback_default = ["1mo", "1y", "2y", "3y"], 1
             
         history_period = st.selectbox("Historical Lookback", lookback_options, index=lookback_default)
         
-        analyze_btn = st.button("Generate Trade Blueprint / Load Chart", type="primary")
+        st.markdown("---")
+        st.write("##### Graph Indicators")
+        show_ichimoku = st.toggle("Ichimoku Cloud", value=False)
+        show_sr = st.toggle("Support & Resistance", value=False)
+        show_rsi = st.toggle("RSI Momentum (14)", value=False)
+        
+        st.markdown("---")
+        st.write("##### AI Strategy")
+        show_blueprint = st.toggle("Generate Trade Blueprint", value=False)
         
     with col2:
-        if analyze_btn or ticker:
-            with st.spinner("Fetching data and running technical math..."):
+        if ticker:
+            with st.spinner("Fetching live market data..."):
                 try:
                     df = DataGateway.fetch_ohlcv(ticker, period=history_period, interval=timeframe, exchange=exchange)
                     profile = get_company_profile(ticker, exchange)
@@ -354,35 +353,84 @@ with tab1:
                     
                     is_intraday = timeframe in ["1m", "2m", "5m", "10m", "15m", "30m", "1h"]
                     
-                    blueprint = None
-                    if not is_intraday:
-                        blueprint = generate_swing_blueprint(ticker, df)
-                    
                     df_chart = df.copy()
                     df_chart['RSI'] = calculate_rsi(df_chart)
                     ichimoku = calculate_ichimoku(df_chart)
                     df_chart = pd.concat([df_chart, ichimoku], axis=1)
-                    
                     supports, resistances = find_support_resistance_levels(df_chart, window=15)
                     
-                    # Generate layout grid
-                    bcol1, bcol2 = st.columns([1, 1])
+                    current_price = round(df_chart['Close'].iloc[-1], 2)
+                    prev_close = round(df_chart['Close'].iloc[-2], 2) if len(df_chart) > 1 else current_price
+                    pct_change = round(((current_price - prev_close) / prev_close) * 100, 2)
+                    color = "#00B074" if pct_change >= 0 else "#FF5B5B"
+                    sign = "+" if pct_change >= 0 else ""
                     
-                    with bcol1:
-                        if blueprint:
+                    st.markdown(f"""
+                    <div style="display:flex; align-items:baseline; gap:15px; margin-bottom:10px;">
+                        <h2 style="margin:0; font-weight:700;">{ticker.upper()}</h2>
+                        <h2 style="margin:0; font-weight:700; color:{color};">₹{current_price}</h2>
+                        <span style="font-size:1.2rem; font-weight:600; color:{color};">({sign}{pct_change}%)</span>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    # Chart Generation
+                    rows = 2 if show_rsi else 1
+                    row_heights = [0.7, 0.3] if show_rsi else [1.0]
+                    fig = make_subplots(rows=rows, cols=1, shared_xaxes=True, vertical_spacing=0.04, row_heights=row_heights)
+                    
+                    fig.add_trace(go.Candlestick(
+                        x=df_chart.index, open=df_chart['Open'], high=df_chart['High'],
+                        low=df_chart['Low'], close=df_chart['Close'], name="OHLC",
+                        increasing_line_color='#00B074', decreasing_line_color='#FF5B5B'
+                    ), row=1, col=1)
+                    
+                    if show_ichimoku:
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Tenkan'], name="Tenkan", line=dict(color='#3b82f6', width=1)), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Kijun'], name="Kijun", line=dict(color='#f59e0b', width=1)), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_A'], name="Span A", line=dict(color='#10b981', width=1, dash='dot')), row=1, col=1)
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_B'], name="Span B", line=dict(color='#ef4444', width=1, dash='dot')), row=1, col=1)
+                        
+                    if show_sr:
+                        for level in supports[-3:]:
+                            fig.add_hline(y=level, line_color="rgba(0, 176, 116, 0.5)", line_dash="dash", line_width=1, annotation_text=f"Sup ₹{level}", row=1, col=1)
+                        for level in resistances[:3]:
+                            fig.add_hline(y=level, line_color="rgba(255, 91, 91, 0.5)", line_dash="dash", line_width=1, annotation_text=f"Res ₹{level}", row=1, col=1)
+                            
+                    if show_rsi:
+                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['RSI'], name="RSI", line=dict(color='#8b5cf6', width=1.5)), row=2, col=1)
+                        fig.add_hline(y=70, line_color="rgba(239, 68, 68, 0.5)", line_dash="dash", line_width=1, row=2, col=1)
+                        fig.add_hline(y=30, line_color="rgba(16, 185, 129, 0.5)", line_dash="dash", line_width=1, row=2, col=1)
+                        
+                    fig.update_layout(
+                        height=600 if show_rsi else 500,
+                        margin=dict(l=10, r=10, t=10, b=10),
+                        xaxis_rangeslider_visible=False,
+                        template="plotly_dark",
+                        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, bgcolor='rgba(0,0,0,0)'),
+                        plot_bgcolor='#0B0E14', paper_bgcolor='#0B0E14'
+                    )
+                    
+                    # Update grid lines for a cleaner look
+                    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)')
+                    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)')
+                    
+                    st.plotly_chart(fig, use_container_width=True)
+                    
+                    if show_blueprint:
+                        if is_intraday:
+                            st.warning("Trade Blueprint requires 1d or 1wk timeframe. Switch timeframe to generate.")
+                        else:
+                            blueprint = generate_swing_blueprint(ticker, df)
                             signal_class = "hold-signal"
-                            if blueprint['decision'] == "BUY":
-                                signal_class = "buy-signal"
-                            elif blueprint['decision'] == "SELL":
-                                signal_class = "sell-signal"
-                                
+                            if blueprint['decision'] == "BUY": signal_class = "buy-signal"
+                            elif blueprint['decision'] == "SELL": signal_class = "sell-signal"
+                            
                             st.markdown(f"""
-                            <div class="blueprint-card {signal_class}">
-                                <div class="card-title">Decision: {blueprint['decision']}</div>
-                                <h3 style="color:#ffffff; margin-top:0;">{blueprint['symbol']} Trade Blueprint</h3>
+                            <div class="blueprint-card {signal_class}" style="margin-top: 15px;">
+                                <div class="card-title">Strategy Decision: {blueprint['decision']}</div>
+                                <h3 style="color:#ffffff; margin-top:0;">Trade Blueprint</h3>
                                 <p style="color:#e2e8f0; font-size:0.95rem;">{blueprint['reason']}</p>
-                                <hr style="border-color:#334155; margin:15px 0;" />
-                                <table style="width:100%; border-collapse:collapse; color:#ffffff;">
+                                <table style="width:100%; border-collapse:collapse; color:#ffffff; margin-top:15px;">
                                     <tr>
                                         <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Trigger Entry Point</td>
                                         <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">₹{blueprint['entry']}</td>
@@ -395,89 +443,15 @@ with tab1:
                                         <td style="padding:6px 0; color:#00B074; font-size:0.9rem;">Target Objective (TP)</td>
                                         <td style="padding:6px 0; font-weight:700; text-align:right; color:#00B074; font-size:1.1rem;">₹{blueprint['target']}</td>
                                     </tr>
-                                    <tr>
-                                        <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Risk/Reward Ratio</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">{blueprint['risk_reward']}</td>
-                                    </tr>
                                 </table>
                             </div>
                             """, unsafe_allow_html=True)
-                        else:
-                            st.markdown(f"""
-                            <div class="blueprint-card hold-signal">
-                                <div class="card-title">Intraday Active Mode</div>
-                                <h3 style="color:#ffffff; margin-top:0;">{ticker.upper()} Live Chart</h3>
-                                <p style="color:#e2e8f0; font-size:0.95rem;">Rendering live intraday data in {timeframe} interval over a {history_period} lookback period.</p>
-                                <hr style="border-color:#334155; margin:15px 0;" />
-                                <table style="width:100%; border-collapse:collapse; color:#ffffff;">
-                                    <tr>
-                                        <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Latest Closed Price</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">₹{round(df_chart['Close'].iloc[-1], 2)}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:6px 0; color:#94a3b8; font-size:0.9rem;">Candlestick Volume</td>
-                                        <td style="padding:6px 0; font-weight:700; text-align:right; font-size:1.1rem;">{int(df_chart['Volume'].iloc[-1])}</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            """, unsafe_allow_html=True)
-                        
-                    with bcol2:
-                        st.write("##### Mathematical Indicators State")
-                        icol1, icol2 = st.columns(2)
-                        with icol1:
-                            st.metric("Wilder's RSI (14)", round(df_chart['RSI'].iloc[-1], 2))
-                            st.metric("Ichimoku Kijun Line", round(df_chart['Kijun'].iloc[-1], 2) if not pd.isna(df_chart['Kijun'].iloc[-1]) else "N/A")
-                        with icol2:
-                            nearest_sup = supports[-1] if supports else round(df_chart['Close'].iloc[-1]*0.95, 2)
-                            nearest_res = resistances[0] if resistances else round(df_chart['Close'].iloc[-1]*1.05, 2)
-                            st.metric("Nearest Support Zone", f"₹{nearest_sup}")
-                            st.metric("Next Resistance Zone", f"₹{nearest_res}")
-                    
-                    # Collapsible Sub-Sections below the Main KPI area
-                    sub_tab1, sub_tab2, sub_tab3, sub_tab4 = st.tabs([
-                        "📊 Candlestick Graph",
+                    # Collapsible Sub-Sections below the Chart
+                    sub_tab2, sub_tab3, sub_tab4 = st.tabs([
                         "📋 Company Profile & Fundamentals",
                         "📰 Recent News & Sentiment",
                         "🔬 Algorithm & Strategy Details"
                     ])
-                    
-                    # SUB-TAB 1: CHART
-                    with sub_tab1:
-                        fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.08, row_heights=[0.7, 0.3])
-                        
-                        fig.add_trace(go.Candlestick(
-                            x=df_chart.index,
-                            open=df_chart['Open'],
-                            high=df_chart['High'],
-                            low=df_chart['Low'],
-                            close=df_chart['Close'],
-                            name="OHLC",
-                            increasing_line_color='#00B074', decreasing_line_color='#FF5B5B'
-                        ), row=1, col=1)
-                        
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Tenkan'], name="Tenkan (Conversion)", line=dict(color='#3b82f6', width=1)), row=1, col=1)
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Kijun'], name="Kijun (Base)", line=dict(color='#f59e0b', width=1)), row=1, col=1)
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_A'], name="Span A", line=dict(color='#10b981', width=1, dash='dot')), row=1, col=1)
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['Senkou_B'], name="Span B", line=dict(color='#ef4444', width=1, dash='dot')), row=1, col=1)
-                        
-                        for level in supports[-3:]:
-                            fig.add_hline(y=level, line_color="#00B074", line_dash="dash", line_width=1, annotation_text=f"Support ₹{level}", row=1, col=1)
-                        for level in resistances[:3]:
-                            fig.add_hline(y=level, line_color="#FF5B5B", line_dash="dash", line_width=1, annotation_text=f"Resistance ₹{level}", row=1, col=1)
-                            
-                        fig.add_trace(go.Scatter(x=df_chart.index, y=df_chart['RSI'], name="RSI", line=dict(color='#8b5cf6', width=1.5)), row=2, col=1)
-                        fig.add_hline(y=70, line_color="#ef4444", line_dash="dash", line_width=1, row=2, col=1)
-                        fig.add_hline(y=30, line_color="#10b981", line_dash="dash", line_width=1, row=2, col=1)
-                        
-                        fig.update_layout(
-                            height=550,
-                            margin=dict(l=20, r=20, t=10, b=10),
-                            xaxis_rangeslider_visible=False,
-                            template="plotly_dark",
-                            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
-                        )
-                        st.plotly_chart(fig, use_container_width=True)
                     
                     # SUB-TAB 2: COMPANY INFO
                     with sub_tab2:

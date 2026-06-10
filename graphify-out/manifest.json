@@ -1,0 +1,58 @@
+{
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\app.py": {
+    "mtime": 1781112413.570169,
+    "hash": "946275ad003d8781002ee1cc78d6cbfb"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\tests\\test_broker_fees.py": {
+    "mtime": 1781099260.453649,
+    "hash": "ee79ae6df0d09029450b8ca6c790edec"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\tests\\test_indicators.py": {
+    "mtime": 1781099247.5312083,
+    "hash": "e2aedf9242473d57e56709d5cada0f2e"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\tests\\test_patterns.py": {
+    "mtime": 1781099250.8933535,
+    "hash": "7a7ac5b8084ac25271d342b0d99c2fb8"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\backtester.py": {
+    "mtime": 1781099195.566749,
+    "hash": "b57cf93d8e674f17608824a209639661"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\data_gateway.py": {
+    "mtime": 1781111522.3223689,
+    "hash": "8a34be70dbcdede96bc057b8abe71830"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\indicators.py": {
+    "mtime": 1781099170.903689,
+    "hash": "2ec3539b78fda9d14f68b01c56f78d07"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\intraday_scanner.py": {
+    "mtime": 1781099213.540095,
+    "hash": "7f0c05c370e5ab992d8d14e4659ac440"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\journal.py": {
+    "mtime": 1781099200.2555687,
+    "hash": "9431aead15da274653e5b0800bc89b54"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\options_engine.py": {
+    "mtime": 1781099182.2329092,
+    "hash": "f2b13b1cd5eea85c0f1a1b8801b5be48"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\patterns.py": {
+    "mtime": 1781099175.3205183,
+    "hash": "21feafe684ff20258bd286e2a137675f"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\signal_generator.py": {
+    "mtime": 1781099208.3223715,
+    "hash": "b212dbf7d4535b7d74d9653bb4ff2acb"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\README.md": {
+    "mtime": 1781096803.678811,
+    "hash": "3d04a600685652ea6e2d3ebe82dd4009"
+  },
+  "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\requirements.txt": {
+    "mtime": 1781099083.775656,
+    "hash": "791be373e7f2896b86d34954504d0eb0"
+  }
+}
