@@ -447,16 +447,40 @@ with tab1:
                         height=chart_height,
                         margin=dict(l=10, r=10, t=10, b=10),
                         xaxis_rangeslider_visible=False,
+                        dragmode='pan',
                         template="plotly_dark",
                         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, bgcolor='rgba(0,0,0,0)'),
-                        plot_bgcolor='#0B0E14', paper_bgcolor='#0B0E14'
+                        plot_bgcolor='#0B0E14', paper_bgcolor='#0B0E14',
+                        hovermode='x unified'
                     )
                     
-                    # Update grid lines for a cleaner look
-                    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)')
-                    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)')
+                    # Fix barcode look by removing non-trading hours
+                    rangebreaks = [dict(bounds=["sat", "mon"])] # Hide weekends
+                    if is_intraday:
+                        # Indian market hours: 09:15 to 15:30. Hide outside this pattern.
+                        rangebreaks.append(dict(bounds=[15.5, 9.25], pattern="hour"))
+                        
+                    fig.update_xaxes(
+                        showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)',
+                        rangebreaks=rangebreaks,
+                        zeroline=False
+                    )
+                    fig.update_yaxes(
+                        showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.05)',
+                        zeroline=False,
+                        fixedrange=False
+                    )
                     
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(
+                        fig, 
+                        use_container_width=True, 
+                        config={
+                            'scrollZoom': True, 
+                            'displayModeBar': True,
+                            'modeBarButtonsToRemove': ['lasso2d', 'select2d'],
+                            'displaylogo': False
+                        }
+                    )
                     
                     if show_blueprint:
                         if is_intraday:
