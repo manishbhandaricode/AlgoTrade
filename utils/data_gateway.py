@@ -50,8 +50,8 @@ class DataGateway:
         """
         normalized_symbol = DataGateway.normalize_symbol(symbol, exchange)
         
-        # Resampling 10m: Query 5m data first
-        query_interval = "5m" if interval == "10m" else interval
+        # Resampling 10m/20m: Query 5m data first
+        query_interval = "5m" if interval in ["10m", "20m"] else interval
         
         try:
             ticker = yf.Ticker(normalized_symbol)
@@ -63,9 +63,10 @@ class DataGateway:
             df = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
             df.index = df.index.tz_localize(None)
             
-            # Resample 5m bars to 10m bars
-            if interval == "10m":
-                df = df.resample('10min').agg({
+            # Resample 5m bars to 10m or 20m bars
+            if interval in ["10m", "20m"]:
+                rule = '10min' if interval == "10m" else '20min'
+                df = df.resample(rule).agg({
                     'Open': 'first',
                     'High': 'max',
                     'Low': 'min',

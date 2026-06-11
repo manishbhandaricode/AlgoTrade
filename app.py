@@ -357,12 +357,12 @@ with tab1:
         ticker = st.text_input("Ticker Symbol", value=st.session_state["selected_searched_ticker"])
         exchange = st.selectbox("Exchange", ["NSE", "BSE"], index=0)
         
-        if trade_mode == "Intraday (Leverage)":
-            timeframe = st.selectbox("Timeframe", ["1m", "5m", "15m", "30m"], index=1)
-            lookback_options, lookback_default = ["1d", "5d"], 0
-        else:
-            timeframe = st.selectbox("Timeframe", ["1d", "1wk"], index=0)
-            lookback_options, lookback_default = ["1mo", "1y", "2y"], 1
+        timeframe = st.selectbox("Timeframe", ["1m", "5m", "10m", "15m", "20m", "30m", "1h", "1d", "1wk"], index=7)
+        
+        if timeframe == "1m": lookback_options, lookback_default = ["1d", "5d", "7d"], 1
+        elif timeframe in ["5m", "10m", "15m", "20m", "30m"]: lookback_options, lookback_default = ["1d", "5d", "1mo"], 1
+        elif timeframe == "1h": lookback_options, lookback_default = ["5d", "1mo", "1y"], 1
+        else: lookback_options, lookback_default = ["1mo", "1y", "2y", "3y"], 1
             
         history_period = st.selectbox("Historical Lookback", lookback_options, index=lookback_default)
         

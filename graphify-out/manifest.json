@@ -1,7 +1,7 @@
 {
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\app.py": {
-    "mtime": 1781113757.6601455,
-    "hash": "52d5f906c3abf155ceeab1b95f5f886b"
+    "mtime": 1781114570.2842963,
+    "hash": "322a7048c915b05b725e7710562ec2c2"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\tests\\test_broker_fees.py": {
     "mtime": 1781099260.453649,
@@ -20,12 +20,12 @@
     "hash": "8f6085cb6badc82bc3a4ac216b7d251e"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\data_gateway.py": {
-    "mtime": 1781111522.3223689,
-    "hash": "8a34be70dbcdede96bc057b8abe71830"
+    "mtime": 1781184208.4126801,
+    "hash": "1504904294768109054a46158fda1409"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\indicators.py": {
-    "mtime": 1781113460.3983712,
-    "hash": "03f61bcf40f5f0f6b2cd03e66f0213d8"
+    "mtime": 1781113878.9889436,
+    "hash": "20f68131ec05eea6274e031acb5bdb64"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\intraday_scanner.py": {
     "mtime": 1781099213.540095,
@@ -44,8 +44,8 @@
     "hash": "21feafe684ff20258bd286e2a137675f"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\utils\\signal_generator.py": {
-    "mtime": 1781113494.6403542,
-    "hash": "396daed88b9474ccb9d9f41e60411199"
+    "mtime": 1781114470.6566608,
+    "hash": "f72dbd6c7c156fd93f044704850f8358"
   },
   "C:\\Users\\manis\\Desktop\\GitHub\\algotrade\\README.md": {
     "mtime": 1781096803.678811,

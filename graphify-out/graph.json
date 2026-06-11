@@ -9,43 +9,43 @@
       "source_file": "app.py",
       "source_location": "L1",
       "id": "app_py",
-      "community": 8,
+      "community": 9,
       "norm_label": "app.py"
     },
     {
       "label": "get_index_summary()",
       "file_type": "code",
       "source_file": "app.py",
-      "source_location": "L163",
+      "source_location": "L186",
       "id": "algotrade_app_get_index_summary",
-      "community": 8,
+      "community": 9,
       "norm_label": "get_index_summary()"
     },
     {
       "label": "get_previous_day_ohlc()",
       "file_type": "code",
       "source_file": "app.py",
-      "source_location": "L180",
+      "source_location": "L203",
       "id": "algotrade_app_get_previous_day_ohlc",
-      "community": 8,
+      "community": 9,
       "norm_label": "get_previous_day_ohlc()"
     },
     {
       "label": "get_company_profile()",
       "file_type": "code",
       "source_file": "app.py",
-      "source_location": "L203",
+      "source_location": "L226",
       "id": "algotrade_app_get_company_profile",
-      "community": 8,
+      "community": 9,
       "norm_label": "get_company_profile()"
     },
     {
       "label": "get_company_news()",
       "file_type": "code",
       "source_file": "app.py",
-      "source_location": "L222",
+      "source_location": "L245",
       "id": "algotrade_app_get_company_news",
-      "community": 8,
+      "community": 9,
       "norm_label": "get_company_news()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L1",
       "id": "tests_test_broker_fees_py",
-      "community": 5,
+      "community": 8,
       "norm_label": "test_broker_fees.py"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L4",
       "id": "tests_test_broker_fees_testbrokerfees",
-      "community": 5,
+      "community": 8,
       "norm_label": "testbrokerfees"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L5",
       "id": "tests_test_broker_fees_testbrokerfees_test_delivery_charges",
-      "community": 5,
+      "community": 8,
       "norm_label": ".test_delivery_charges()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L20",
       "id": "tests_test_broker_fees_testbrokerfees_test_intraday_charges",
-      "community": 5,
+      "community": 8,
       "norm_label": ".test_intraday_charges()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "tests\\test_broker_fees.py",
       "source_location": "L30",
       "id": "tests_test_broker_fees_testbrokerfees_test_options_charges",
-      "community": 5,
+      "community": 8,
       "norm_label": ".test_options_charges()"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L1",
       "id": "tests_test_indicators_py",
-      "community": 1,
+      "community": 4,
       "norm_label": "test_indicators.py"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L6",
       "id": "tests_test_indicators_testindicators",
-      "community": 1,
+      "community": 4,
       "norm_label": "testindicators"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L7",
       "id": "tests_test_indicators_testindicators_setup",
-      "community": 1,
+      "community": 4,
       "norm_label": ".setup()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L18",
       "id": "tests_test_indicators_testindicators_test_rsi_bounds",
-      "community": 1,
+      "community": 4,
       "norm_label": ".test_rsi_bounds()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L24",
       "id": "tests_test_indicators_testindicators_test_pivot_points",
-      "community": 1,
+      "community": 6,
       "norm_label": ".test_pivot_points()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "tests\\test_indicators.py",
       "source_location": "L33",
       "id": "tests_test_indicators_testindicators_test_ichimoku_output",
-      "community": 0,
+      "community": 4,
       "norm_label": ".test_ichimoku_output()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L1",
       "id": "tests_test_patterns_py",
-      "community": 4,
+      "community": 3,
       "norm_label": "test_patterns.py"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L6",
       "id": "tests_test_patterns_testpatterns",
-      "community": 4,
+      "community": 3,
       "norm_label": "testpatterns"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L7",
       "id": "tests_test_patterns_testpatterns_test_hammer_detection",
-      "community": 4,
+      "community": 3,
       "norm_label": ".test_hammer_detection()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L21",
       "id": "tests_test_patterns_testpatterns_test_shooting_star_detection",
-      "community": 4,
+      "community": 3,
       "norm_label": ".test_shooting_star_detection()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L35",
       "id": "tests_test_patterns_testpatterns_test_marubozu_detection",
-      "community": 4,
+      "community": 3,
       "norm_label": ".test_marubozu_detection()"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "tests\\test_patterns.py",
       "source_location": "L47",
       "id": "tests_test_patterns_testpatterns_test_engulfing_detection",
-      "community": 4,
+      "community": 3,
       "norm_label": ".test_engulfing_detection()"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L5",
       "id": "utils_backtester_calculate_indian_transaction_costs",
-      "community": 5,
+      "community": 8,
       "norm_label": "calculate_indian_transaction_costs()"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "utils\\backtester.py",
       "source_location": "L11",
       "id": "utils_backtester_rationale_11",
-      "community": 5,
+      "community": 8,
       "norm_label": "calculates detailed indian stock market regulatory charges and brokerage fees."
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L1",
       "id": "utils_data_gateway_py",
-      "community": 6,
+      "community": 5,
       "norm_label": "data_gateway.py"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L6",
       "id": "utils_data_gateway_datagateway",
-      "community": 6,
+      "community": 5,
       "norm_label": "datagateway"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L13",
       "id": "utils_data_gateway_normalize_symbol",
-      "community": 6,
+      "community": 5,
       "norm_label": "normalize_symbol()"
     },
     {
@@ -279,25 +279,25 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L45",
       "id": "utils_data_gateway_fetch_ohlcv",
-      "community": 6,
+      "community": 5,
       "norm_label": "fetch_ohlcv()"
     },
     {
       "label": "get_live_spot_price()",
       "file_type": "code",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L86",
+      "source_location": "L83",
       "id": "utils_data_gateway_get_live_spot_price",
-      "community": 6,
+      "community": 5,
       "norm_label": "get_live_spot_price()"
     },
     {
       "label": "is_market_open()",
       "file_type": "code",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L108",
+      "source_location": "L105",
       "id": "utils_data_gateway_is_market_open",
-      "community": 6,
+      "community": 5,
       "norm_label": "is_market_open()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L7",
       "id": "utils_data_gateway_rationale_7",
-      "community": 6,
+      "community": 5,
       "norm_label": "on-demand data gateway to fetch historical and intraday data from yfinance."
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L14",
       "id": "utils_data_gateway_rationale_14",
-      "community": 9,
+      "community": 10,
       "norm_label": "normalizes ticker symbols to yfinance-compatible formats.         e.g. nifty 50"
     },
     {
@@ -324,25 +324,25 @@
       "source_file": "utils\\data_gateway.py",
       "source_location": "L46",
       "id": "utils_data_gateway_rationale_46",
-      "community": 10,
+      "community": 11,
       "norm_label": "fetches adjusted ohlcv data arrays from yfinance.         supports standard inte"
     },
     {
       "label": "Fetches the current live spot price for an asset.         Uses 1d/1m query to fe",
       "file_type": "rationale",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L87",
-      "id": "utils_data_gateway_rationale_87",
-      "community": 11,
+      "source_location": "L84",
+      "id": "utils_data_gateway_rationale_84",
+      "community": 12,
       "norm_label": "fetches the current live spot price for an asset.         uses 1d/1m query to fe"
     },
     {
       "label": "Determines if the Indian stock market (NSE/BSE) is currently open.         Tradi",
       "file_type": "rationale",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L109",
-      "id": "utils_data_gateway_rationale_109",
-      "community": 12,
+      "source_location": "L106",
+      "id": "utils_data_gateway_rationale_106",
+      "community": 13,
       "norm_label": "determines if the indian stock market (nse/bse) is currently open.         tradi"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "utils\\indicators.py",
       "source_location": "L4",
       "id": "utils_indicators_calculate_rsi",
-      "community": 1,
+      "community": 0,
       "norm_label": "calculate_rsi()"
     },
     {
@@ -412,16 +412,16 @@
       "label": "calculate_daily_pivots()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L73",
+      "source_location": "L72",
       "id": "utils_indicators_calculate_daily_pivots",
-      "community": 1,
+      "community": 6,
       "norm_label": "calculate_daily_pivots()"
     },
     {
       "label": "find_support_resistance_levels()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L88",
+      "source_location": "L87",
       "id": "utils_indicators_find_support_resistance_levels",
       "community": 0,
       "norm_label": "find_support_resistance_levels()"
@@ -430,9 +430,9 @@
       "label": "calculate_ichimoku()",
       "file_type": "code",
       "source_file": "utils\\indicators.py",
-      "source_location": "L113",
+      "source_location": "L112",
       "id": "utils_indicators_calculate_ichimoku",
-      "community": 0,
+      "community": 4,
       "norm_label": "calculate_ichimoku()"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L1",
       "id": "utils_journal_py",
-      "community": 2,
+      "community": 1,
       "norm_label": "journal.py"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L9",
       "id": "utils_journal_init_db",
-      "community": 2,
+      "community": 1,
       "norm_label": "init_db()"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L33",
       "id": "utils_journal_add_journal_entry",
-      "community": 2,
+      "community": 1,
       "norm_label": "add_journal_entry()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L57",
       "id": "utils_journal_get_journal_entries",
-      "community": 2,
+      "community": 1,
       "norm_label": "get_journal_entries()"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L68",
       "id": "utils_journal_delete_journal_entry",
-      "community": 2,
+      "community": 1,
       "norm_label": "delete_journal_entry()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L79",
       "id": "utils_journal_save_bulk_entries",
-      "community": 2,
+      "community": 1,
       "norm_label": "save_bulk_entries()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L10",
       "id": "utils_journal_rationale_10",
-      "community": 2,
+      "community": 1,
       "norm_label": "initializes the sqlite database and creates the journal table if it does not exi"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L41",
       "id": "utils_journal_rationale_41",
-      "community": 2,
+      "community": 1,
       "norm_label": "adds a new trade record to the manual journal."
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L58",
       "id": "utils_journal_rationale_58",
-      "community": 2,
+      "community": 1,
       "norm_label": "fetches all logged trades in the journal database as a pandas dataframe."
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L69",
       "id": "utils_journal_rationale_69",
-      "community": 2,
+      "community": 1,
       "norm_label": "deletes a journal entry by its id."
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "utils\\journal.py",
       "source_location": "L80",
       "id": "utils_journal_rationale_80",
-      "community": 2,
+      "community": 1,
       "norm_label": "saves a dataframe back to the sqlite database.     used for bulk edits via strea"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L1",
       "id": "utils_options_engine_py",
-      "community": 3,
+      "community": 2,
       "norm_label": "options_engine.py"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L6",
       "id": "utils_options_engine_norm_cdf",
-      "community": 3,
+      "community": 2,
       "norm_label": "norm_cdf()"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L16",
       "id": "utils_options_engine_calculate_black_scholes",
-      "community": 3,
+      "community": 2,
       "norm_label": "calculate_black_scholes()"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L43",
       "id": "utils_options_engine_estimate_historical_volatility",
-      "community": 3,
+      "community": 2,
       "norm_label": "estimate_historical_volatility()"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L57",
       "id": "utils_options_engine_get_next_expiry_date",
-      "community": 3,
+      "community": 2,
       "norm_label": "get_next_expiry_date()"
     },
     {
@@ -648,7 +648,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L67",
       "id": "utils_options_engine_generate_simulated_option_chain",
-      "community": 3,
+      "community": 2,
       "norm_label": "generate_simulated_option_chain()"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L7",
       "id": "utils_options_engine_rationale_7",
-      "community": 3,
+      "community": 2,
       "norm_label": "standard normal cumulative distribution function (cdf) using math.erf.     ensur"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L17",
       "id": "utils_options_engine_rationale_17",
-      "community": 3,
+      "community": 2,
       "norm_label": "calculates the theoretical black-scholes-merton option premium and delta.     op"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L44",
       "id": "utils_options_engine_rationale_44",
-      "community": 3,
+      "community": 2,
       "norm_label": "estimates annualized historical volatility from historical daily close prices."
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L58",
       "id": "utils_options_engine_rationale_58",
-      "community": 3,
+      "community": 2,
       "norm_label": "finds the next expiry date.     expiry_day: 3 for thursday (standard nifty weekl"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "utils\\options_engine.py",
       "source_location": "L68",
       "id": "utils_options_engine_rationale_68",
-      "community": 3,
+      "community": 2,
       "norm_label": "generates a simulated option chain around the current spot price."
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L1",
       "id": "utils_patterns_py",
-      "community": 4,
+      "community": 3,
       "norm_label": "patterns.py"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L4",
       "id": "utils_patterns_detect_candlestick_patterns",
-      "community": 4,
+      "community": 3,
       "norm_label": "detect_candlestick_patterns()"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "utils\\patterns.py",
       "source_location": "L5",
       "id": "utils_patterns_rationale_5",
-      "community": 4,
+      "community": 3,
       "norm_label": "programmatically detects candlestick patterns on a pandas dataframe.     returns"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L1",
       "id": "utils_signal_generator_py",
-      "community": 1,
+      "community": 6,
       "norm_label": "signal_generator.py"
     },
     {
@@ -747,8 +747,17 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L107",
       "id": "utils_signal_generator_generate_options_signal",
-      "community": 1,
+      "community": 6,
       "norm_label": "generate_options_signal()"
+    },
+    {
+      "label": "generate_intraday_blueprint()",
+      "file_type": "code",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L231",
+      "id": "utils_signal_generator_generate_intraday_blueprint",
+      "community": 0,
+      "norm_label": "generate_intraday_blueprint()"
     },
     {
       "label": "Generates a swing trade plan based on 1D/1W closed bars using multiple strategie",
@@ -765,8 +774,35 @@
       "source_file": "utils\\signal_generator.py",
       "source_location": "L114",
       "id": "utils_signal_generator_rationale_114",
-      "community": 1,
+      "community": 6,
       "norm_label": "directional options strategy recommendations (calls or puts) based on index mome"
+    },
+    {
+      "label": "Generates an intraday trade plan (pure equity, leverage).     Uses tighter stops",
+      "file_type": "rationale",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L232",
+      "id": "utils_signal_generator_rationale_232",
+      "community": 0,
+      "norm_label": "generates an intraday trade plan (pure equity, leverage).     uses tighter stops"
+    },
+    {
+      "label": "Fetches the current live spot price for an asset.         Uses 1d/1m query to fe",
+      "file_type": "rationale",
+      "source_file": "utils\\data_gateway.py",
+      "source_location": "L87",
+      "community": 14,
+      "norm_label": "fetches the current live spot price for an asset.         uses 1d/1m query to fe",
+      "id": "utils_data_gateway_rationale_87"
+    },
+    {
+      "label": "Determines if the Indian stock market (NSE/BSE) is currently open.         Tradi",
+      "file_type": "rationale",
+      "source_file": "utils\\data_gateway.py",
+      "source_location": "L109",
+      "community": 15,
+      "norm_label": "determines if the indian stock market (nse/bse) is currently open.         tradi",
+      "id": "utils_data_gateway_rationale_109"
     },
     {
       "label": "Simulates trades chronologically on a historical dataframe to verify profitabili",
@@ -782,7 +818,7 @@
       "file_type": "rationale",
       "source_file": "utils\\indicators.py",
       "source_location": "L5",
-      "community": 1,
+      "community": 0,
       "norm_label": "calculates relative strength index (rsi) using wilder's smoothing technique.",
       "id": "utils_indicators_rationale_5"
     },
@@ -791,7 +827,7 @@
       "file_type": "rationale",
       "source_file": "utils\\indicators.py",
       "source_location": "L28",
-      "community": 1,
+      "community": 6,
       "norm_label": "calculates standard floor pivot points based on previous session's ohlc.",
       "id": "utils_indicators_rationale_28"
     },
@@ -809,7 +845,7 @@
       "file_type": "rationale",
       "source_file": "utils\\indicators.py",
       "source_location": "L89",
-      "community": 0,
+      "community": 4,
       "norm_label": "calculates ichimoku cloud components.     note: senkou span a and b are shifted",
       "id": "utils_indicators_rationale_89"
     },
@@ -827,7 +863,7 @@
       "file_type": "rationale",
       "source_file": "utils\\signal_generator.py",
       "source_location": "L117",
-      "community": 1,
+      "community": 6,
       "norm_label": "directional options strategy recommendations (calls or puts) based on index mome",
       "id": "utils_signal_generator_rationale_117"
     }
@@ -1348,22 +1384,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L77",
+      "source_location": "L93",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_data_gateway_fetch_ohlcv",
-      "target": "utils_data_gateway_is_market_open"
+      "source": "utils_data_gateway_get_live_spot_price",
+      "target": "utils_data_gateway_fetch_ohlcv"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "utils\\data_gateway.py",
-      "source_location": "L93",
+      "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "utils_data_gateway_get_live_spot_price",
-      "target": "utils_data_gateway_fetch_ohlcv"
+      "source": "utils_data_gateway_fetch_ohlcv",
+      "target": "utils_data_gateway_is_market_open"
     },
     {
       "relation": "contains",
@@ -1489,6 +1525,17 @@
       "target": "utils_indicators_calculate_rsi"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
+      "target": "utils_indicators_calculate_rsi"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "utils\\indicators.py",
@@ -1515,9 +1562,31 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "utils\\signal_generator.py",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
+      "target": "utils_indicators_calculate_macd"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
       "source_location": "L25",
       "weight": 1.0,
       "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_bollinger_bands"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L246",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
       "target": "utils_indicators_calculate_bollinger_bands"
     },
     {
@@ -1537,9 +1606,31 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "utils\\signal_generator.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
+      "target": "utils_indicators_calculate_moving_averages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
       "source_location": "L22",
       "weight": 1.0,
       "source": "utils_signal_generator_generate_swing_blueprint",
+      "target": "utils_indicators_calculate_atr"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
       "target": "utils_indicators_calculate_atr"
     },
     {
@@ -2007,6 +2098,17 @@
       "target": "utils_patterns_detect_candlestick_patterns"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "utils_signal_generator_generate_intraday_blueprint",
+      "target": "utils_patterns_detect_candlestick_patterns"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "utils\\signal_generator.py",
@@ -2025,6 +2127,16 @@
       "confidence_score": 1.0,
       "source": "utils_signal_generator_py",
       "target": "utils_signal_generator_generate_options_signal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L231",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_signal_generator_py",
+      "target": "utils_signal_generator_generate_intraday_blueprint"
     },
     {
       "relation": "rationale_for",
@@ -2065,6 +2177,16 @@
       "confidence_score": 1.0,
       "source": "utils_signal_generator_rationale_117",
       "target": "utils_signal_generator_generate_options_signal"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "utils\\signal_generator.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "utils_signal_generator_rationale_232",
+      "target": "utils_signal_generator_generate_intraday_blueprint"
     }
   ],
   "hyperedges": []
