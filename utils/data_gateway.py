@@ -73,10 +73,7 @@ class DataGateway:
                     'Volume': 'sum'
                 }).dropna()
             
-            # Anti-Repainting: Drop the last unclosed bar if the market is open
-            if DataGateway.is_market_open() and interval in ["1m", "2m", "5m", "10m", "15m", "30m", "1h"]:
-                df = df.iloc[:-1]  # Exclude the current active unclosed candlestick
-                
+            # No anti-repainting: always return the latest forming bar so the user gets live prices
             return df
             
         except Exception as e:
