@@ -353,8 +353,24 @@ with tab1:
             st.markdown("---")
         else:
             trigger_scan = False
+        from utils.nifty_symbols import NIFTY_500_SYMBOLS
+        
+        current_ticker = st.session_state.get("selected_searched_ticker", "RELIANCE")
+        options = ["Custom Ticker..."] + NIFTY_500_SYMBOLS
+        
+        default_index = 0
+        for i, opt in enumerate(options):
+            if opt.startswith(f"{current_ticker} -"):
+                default_index = i
+                break
+                
+        selected_option = st.selectbox("Search Stock Name (Autocomplete)", options=options, index=default_index)
+        
+        if selected_option == "Custom Ticker...":
+            ticker = st.text_input("Enter Custom Ticker Symbol", value=current_ticker)
+        else:
+            ticker = selected_option.split(' - ')[0]
             
-        ticker = st.text_input("Ticker Symbol", value=st.session_state["selected_searched_ticker"])
         exchange = st.selectbox("Exchange", ["NSE", "BSE"], index=0)
         
         timeframe = st.selectbox("Timeframe", ["1m", "5m", "10m", "15m", "20m", "30m", "1h", "1d", "1wk"], index=7)
