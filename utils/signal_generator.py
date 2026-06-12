@@ -2,20 +2,20 @@ import pandas as pd
 import numpy as np
 from typing import Dict, Any
 from utils.indicators import calculate_rsi, calculate_ichimoku, find_support_resistance_levels, calculate_daily_pivots
-from utils.patterns import detect_candlestick_patterns
+from utils.patterns import detect_candlestick_patterns, detect_smc_patterns
 
 from utils.indicators import calculate_macd, calculate_bollinger_bands, calculate_moving_averages, calculate_atr
 
-def generate_swing_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Ichimoku Trend") -> Dict[str, Any]:
+def generate_swing_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Ichimoku Trend", live_price: float = None) -> Dict[str, Any]:
     """
     Generates a swing trade plan based on 1D/1W closed bars using multiple strategies.
-    Uses ATR for dynamic Stop Loss sizing.
+    Uses ATR for dynamic Stop Loss sizing. Supports true live spot price override.
     """
     if len(df) < 52:
         return {"decision": "NO TRADE", "reason": f"Insufficient data history.", "indicators": {}}
     
     df = df.copy()
-    close_price = float(df['Close'].iloc[-1])
+    close_price = live_price if live_price is not None else float(df['Close'].iloc[-1])
     
     # Calculate Core Indicators
     df['RSI'] = calculate_rsi(df)
@@ -25,8 +25,9 @@ def generate_swing_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Ich
     bb = calculate_bollinger_bands(df)
     mas = calculate_moving_averages(df)
     patterns = detect_candlestick_patterns(df)
+    smc_patterns = detect_smc_patterns(df)
     
-    df = pd.concat([df, ichimoku, macd, bb, mas, patterns], axis=1)
+    df = pd.concat([df, ichimoku, macd, bb, mas, patterns, smc_patterns], axis=1)
     supports, resistances = find_support_resistance_levels(df, window=15)
     
     valid_supports = [s for s in supports if s < close_price]
@@ -69,6 +70,33 @@ def generate_swing_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Ich
             decision = "BUY"
             reason = "Mean Reversion: Price rejected at lower Bollinger Band with oversold RSI or bullish pattern."
             entry_price = round(last_row['BB_Lower'], 2)
+            
+    # --- STRATEGY 4: Smart Money Price Action (SMC) ---
+    elif strategy == "Smart Money Price Action (SMC)":
+        # Look for recent active Bullish Order Blocks or Fair Value Gaps
+        # We'll check the last 5 bars for an institutional OB or FVG
+        recent_smc = df.iloc[-5:]
+        active_fvg = recent_smc[recent_smc['Bullish_FVG']]
+        active_ob = recent_smc[recent_smc['Bullish_OB']]
+        
+        if not active_ob.empty or not active_fvg.empty:
+            # We have institutional interest
+            # Check if current price is dipping into the OB/FVG zone for an entry
+            if not active_ob.empty:
+                ob_level = active_ob['High'].iloc[-1]
+                ob_bottom = active_ob['Low'].iloc[-1]
+                if close_price <= ob_level * 1.02 and close_price >= ob_bottom:
+                    decision = "BUY"
+                    reason = f"Smart Money Entry: Price mitigated into a valid Bullish Order Block at ₹{round(ob_level, 2)}."
+                    entry_price = close_price
+                    # Place SL strictly below the OB
+                    atr_val = (ob_level - ob_bottom) * 1.2 # Override ATR for SMC precise risk
+            elif not active_fvg.empty:
+                fvg_top = active_fvg['High'].shift(2).iloc[-1] if len(active_fvg) > 2 else active_fvg['Low'].iloc[-1]
+                if close_price <= fvg_top * 1.02:
+                    decision = "BUY"
+                    reason = f"Smart Money Entry: Price tapping into an active Bullish Fair Value Gap (FVG)."
+                    entry_price = close_price
 
     # ATR Based Stop Loss (1.5x ATR for Swing)
     stop_loss = round(entry_price - (atr_val * 1.5), 2)
@@ -228,16 +256,16 @@ def generate_options_signal(
         "pivots": pivots
     }
 
-def generate_intraday_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Momentum Breakout") -> Dict[str, Any]:
+def generate_intraday_blueprint(symbol: str, df: pd.DataFrame, strategy: str = "Momentum Breakout", live_price: float = None) -> Dict[str, Any]:
     """
-    Generates an intraday trade plan (pure equity, leverage).
-    Uses tighter stops (e.g., 0.5x to 1x ATR) and ORB/Momentum logic.
+    High-velocity blueprint for day-trading (1m, 5m, 15m) focused on momentum and tight RR.
+    Supports true live spot price override.
     """
-    if len(df) < 20:
-        return {"decision": "NO TRADE", "reason": "Insufficient intraday data.", "indicators": {}}
+    if len(df) < 50:
+        return {"decision": "NO TRADE", "reason": f"Insufficient data history.", "indicators": {}}
         
     df = df.copy()
-    close_price = float(df['Close'].iloc[-1])
+    close_price = live_price if live_price is not None else float(df['Close'].iloc[-1])
     
     # Intraday specific indicators
     df['RSI'] = calculate_rsi(df)

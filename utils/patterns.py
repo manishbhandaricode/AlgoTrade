@@ -65,3 +65,32 @@ def detect_candlestick_patterns(df: pd.DataFrame) -> pd.DataFrame:
         'BullishEngulfing': is_bullish_engulfing,
         'BearishEngulfing': is_bearish_engulfing
     }, index=df.index)
+
+def detect_smc_patterns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Programmatically detects Smart Money Concepts (SMC) like Fair Value Gaps (FVG) and Order Blocks (OB).
+    """
+    df = df.copy()
+    
+    # Fair Value Gaps (FVG)
+    # Bullish FVG: Low of candle 3 (current) > High of candle 1 (shift 2)
+    # Bearish FVG: High of candle 3 (current) < Low of candle 1 (shift 2)
+    high_shift_2 = df['High'].shift(2)
+    low_shift_2 = df['Low'].shift(2)
+    
+    bullish_fvg = df['Low'] > high_shift_2
+    bearish_fvg = df['High'] < low_shift_2
+    
+    # Order Block (OB)
+    # Bullish OB: The last down candle before a strong up move
+    bullish_ob = (df['Close'].shift(1) < df['Open'].shift(1)) & (df['Close'] > df['High'].shift(1))
+    
+    # Bearish OB: The last up candle before a strong down move
+    bearish_ob = (df['Close'].shift(1) > df['Open'].shift(1)) & (df['Close'] < df['Low'].shift(1))
+    
+    return pd.DataFrame({
+        'Bullish_FVG': bullish_fvg,
+        'Bearish_FVG': bearish_fvg,
+        'Bullish_OB': bullish_ob,
+        'Bearish_OB': bearish_ob
+    }, index=df.index)

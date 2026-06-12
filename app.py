@@ -378,7 +378,7 @@ with tab1:
         
         st.markdown("---")
         st.write("##### AI Strategy")
-        strategy_choice = st.selectbox("Trading Strategy", ["Ichimoku Trend", "Momentum Breakout", "Mean Reversion"])
+        strategy_choice = st.selectbox("Trading Strategy", ["Ichimoku Trend", "Smart Money Price Action (SMC)", "Momentum Breakout", "Mean Reversion"])
         show_blueprint = st.toggle("Generate Trade Blueprint", value=False)
         
     with col2:
@@ -436,7 +436,14 @@ with tab1:
                     df_chart = pd.concat([df_chart, ichimoku, macd, bb, mas], axis=1)
                     supports, resistances = find_support_resistance_levels(df_chart, window=15)
                     
-                    current_price = round(df_chart['Close'].iloc[-1], 2)
+                    # Intercept true live spot price bypassing the 15m delay of historical candles
+                    normalized_ticker = DataGateway.normalize_symbol(ticker, exchange)
+                    try:
+                        live_spot = yf.Ticker(normalized_ticker).fast_info['lastPrice']
+                        current_price = round(live_spot, 2)
+                    except:
+                        current_price = round(df_chart['Close'].iloc[-1], 2)
+                        
                     prev_close = round(df_chart['Close'].iloc[-2], 2) if len(df_chart) > 1 else current_price
                     pct_change = round(((current_price - prev_close) / prev_close) * 100, 2)
                     color = "#00B074" if pct_change >= 0 else "#FF5B5B"
@@ -553,9 +560,9 @@ with tab1:
                         from utils.signal_generator import generate_swing_blueprint, generate_intraday_blueprint
                         
                         if trade_mode == "Intraday (Leverage)":
-                            blueprint = generate_intraday_blueprint(ticker, df, strategy=strategy_choice)
+                            blueprint = generate_intraday_blueprint(ticker, df, strategy=strategy_choice, live_price=current_price)
                         else:
-                            blueprint = generate_swing_blueprint(ticker, df, strategy=strategy_choice)
+                            blueprint = generate_swing_blueprint(ticker, df, strategy=strategy_choice, live_price=current_price)
                             
                         signal_class = "hold-signal"
                         if blueprint['decision'] == "BUY": signal_class = "buy-signal"
